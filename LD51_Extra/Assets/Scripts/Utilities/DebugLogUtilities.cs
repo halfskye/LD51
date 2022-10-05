@@ -27,9 +27,9 @@ namespace OldManAndTheSea.Utilities
         /// </summary>
         private static readonly Dictionary<DebugLogType, bool> DebugLogTypeEnabledMap = new Dictionary<DebugLogType, bool>()
         {
-            { DebugLogType.UTILITIES, true }
-            , { DebugLogType.SEA_MANAGER, true }
-            , { DebugLogType.WORLD_MANAGER, true }
+            { DebugLogType.UTILITIES, false }
+            , { DebugLogType.SEA_MANAGER, false }
+            , { DebugLogType.WORLD_MANAGER, false }
             , { DebugLogType.SHIP, true }
         };
 

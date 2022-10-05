@@ -1,21 +1,31 @@
 ﻿using System;
 using OldManAndTheSea.Utilities;
 using OldManAndTheSea.World;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace OldManAndTheSea
 {
     public class Ship : MonoBehaviour
     {
+        [Title("Speeds")]
         [SerializeField] private float _movementSpeed = 5f;
-
-        [SerializeField] private Vector2 _startingCoordinates = new Vector2(0.25f, 0.05f);
+        [SerializeField] private float _rotationSpeed = 10f;
+        
+        [HorizontalGroup("Split", Title = "Starting Coordinates")]
+        [SerializeField, BoxGroup("Split/x"), Range(0f,1f), HideLabel] private float xCoord = 0.25f;
+        [SerializeField, BoxGroup("Split/y"), Range(0f,1f), HideLabel] private float yCoord = 0.05f;
 
         private void Start()
         {
+            var worldManager = WorldManager.Instance;
+            
             //@TEMP: Starting position
-            var startPosition = WorldManager.Instance.CoordinatesToWorldPoint(_startingCoordinates);
+            var startPosition = worldManager.CoordinatesToWorldPoint(new Vector2(xCoord, yCoord));
             this.transform.position = startPosition;
+            
+            // Rotate to align w/ water
+            this.transform.rotation = Quaternion.LookRotation(-worldManager.Water_Right, worldManager.Water_Up);
         }
 
         private void Update()
@@ -40,17 +50,13 @@ namespace OldManAndTheSea
 
         private void UpdateMovement(Vector3 direction)
         {
-            var position = this.transform.position;
-            var north = WorldManager.Instance.GetNorth_Normalized(position);
-            var west = WorldManager.Instance.EastToWest_Normalized;
-            
-            var northMove = north * direction.y;
-            var westMove = west * direction.x;
+            var rotationSpeed = direction.x * _rotationSpeed * Time.deltaTime;
+            var rotateBy = Quaternion.Euler(0f, rotationSpeed, 0f);
+            var transform1 = this.transform;
+            transform1.rotation *= rotateBy;
 
-            var northWestMove = (northMove + westMove).normalized;
-
-            position += northWestMove * (_movementSpeed * Time.deltaTime);
-            this.transform.position = position;
+            var movementSpeed = Mathf.Max(0f, direction.y * _movementSpeed * Time.deltaTime);
+            transform1.position += transform1.forward * movementSpeed;
         }
         
         private void LogPosition()

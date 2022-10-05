@@ -22,8 +22,6 @@ namespace OldManAndTheSea.World
 
         public float SeaScreenHeight => ScreenHeight * Settings.SeaToSkyRatio;
 
-        public Vector3 GroundZero = Vector3.zero;
-        
         public enum SeaCorner
         {
             LEFT_FRONT = 0,
@@ -34,10 +32,10 @@ namespace OldManAndTheSea.World
         private Vector3[] _seaCorners = new []{ Vector3.zero, Vector3.zero, Vector3.zero, Vector3.zero, };
         public Vector3[] SeaCorners => _seaCorners;
 
-        public Vector3 LeftFront => SeaCorners[(int) SeaCorner.LEFT_FRONT];
-        public Vector3 RightFront => SeaCorners[(int) SeaCorner.RIGHT_FRONT];
-        public Vector3 LeftBack => SeaCorners[(int) SeaCorner.LEFT_BACK];
-        public Vector3 RightBack => SeaCorners[(int) SeaCorner.RIGHT_BACK];
+        public Vector3 Water_Left_Front => SeaCorners[(int) SeaCorner.LEFT_FRONT];
+        public Vector3 Water_Right_Front => SeaCorners[(int) SeaCorner.RIGHT_FRONT];
+        public Vector3 Water_Left_Back => SeaCorners[(int) SeaCorner.LEFT_BACK];
+        public Vector3 Water_Right_Back => SeaCorners[(int) SeaCorner.RIGHT_BACK];
         
         public enum Direction
         {
@@ -47,26 +45,35 @@ namespace OldManAndTheSea.World
             SOUTH = 3,
         }
 
-        public Vector3 EastToWest_Back => RightBack - LeftBack;
+        public Vector3 EastToWest_Back => Water_Right_Back - Water_Left_Back;
+        public Vector3 WestToEast_Back => -EastToWest_Back;
         public Vector3 EastToWest_Normalized => EastToWest_Back.normalized;
+        public Vector3 WestToEast_Normalized => -EastToWest_Normalized;
+
+        public Vector3 Water_Middle_Bottom => Vector3.Lerp(Water_Left_Front, Water_Right_Front, 0.1f);
+        public Vector3 Water_Middle_Top => Vector3.Lerp(Water_Left_Back, Water_Right_Back, 0.1f);
+
+        public Vector3 Water_Right => WestToEast_Normalized;
+        public Vector3 Water_Forward => (Water_Middle_Top - Water_Middle_Bottom).normalized;
+        public Vector3 Water_Up => Vector3.Cross(Water_Right, Water_Forward);
         
         public Vector3 GetNorth(Vector3 position)
         {
-            var heightDelta = LeftBack.y - LeftFront.y;
-            var yRatio = (position.y - LeftFront.y) / heightDelta;
+            var heightDelta = Water_Left_Back.y - Water_Left_Front.y;
+            var yRatio = (position.y - Water_Left_Front.y) / heightDelta;
 
-            var widthDelta = Mathf.Abs(LeftBack.x - LeftFront.x) * 2;
+            var widthDelta = Mathf.Abs(Water_Left_Back.x - Water_Left_Front.x) * 2;
             var widthAtY = widthDelta * yRatio;
             DebugLogError($"WidthAtY: {widthAtY}");
 
             var xRatio = position.x / widthAtY / 2f;
             DebugLogError($"xRatio: {xRatio}");
-            var baseX = (RightFront.x - LeftFront.x) / 2f * xRatio;
+            var baseX = (Water_Right_Front.x - Water_Left_Front.x) / 2f * xRatio;
 
             // var depthDelta = LeftBack.z - LeftFront.z;
             // var baseZ = depthDelta * yRatio;
             
-            var groundZero = new Vector3(baseX, LeftFront.y, LeftFront.z);
+            var groundZero = new Vector3(baseX, Water_Left_Front.y, Water_Left_Front.z);
             
             return position - groundZero;
         }
@@ -89,16 +96,16 @@ namespace OldManAndTheSea.World
             //
             // var heightDelta = LeftBack
 
-            var heightDelta = LeftBack.y - LeftFront.y;
-            var yWorld = heightDelta * coordinates.y + LeftFront.y; 
+            var heightDelta = Water_Left_Back.y - Water_Left_Front.y;
+            var yWorld = heightDelta * coordinates.y + Water_Left_Front.y; 
             
-            var widthDelta = LeftBack.x - LeftFront.x;
+            var widthDelta = Water_Left_Back.x - Water_Left_Front.x;
             var widthAtY = coordinates.y * widthDelta;
             
             var xWorld = widthAtY * coordinates.x;
 
-            var depthDelta = LeftBack.z - LeftFront.z;
-            var zWorld = depthDelta * coordinates.y + LeftFront.z;
+            var depthDelta = Water_Left_Back.z - Water_Left_Front.z;
+            var zWorld = depthDelta * coordinates.y + Water_Left_Front.z;
 
             return new Vector3(xWorld, yWorld, zWorld);
         }
