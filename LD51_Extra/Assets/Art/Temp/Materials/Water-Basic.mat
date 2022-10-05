@@ -10,9 +10,11 @@ Material:
   m_Name: Water-Basic
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
+  - _EMISSION
+  - _NORMALMAP
   - _PARALLAXMAP
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -22,7 +24,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 2a983555d65e69b48bf76d765b7f0aea, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,11 +42,11 @@ Material:
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: -0.05, y: 0.05}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: -0.05, y: 0.05}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -64,12 +66,12 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.75
+    - _Glossiness: 0.643
     - _GlossyReflections: 1
-    - _Metallic: 0.9
+    - _Metallic: 0.858
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.037
+    - _Parallax: 0.033
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -77,5 +79,5 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0.26517445, g: 0.6215501, b: 0.9528302, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0.045390576, g: 0.08042891, b: 0.11148563, a: 1}
   m_BuildTextureStacks: []

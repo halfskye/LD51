@@ -45,17 +45,18 @@ namespace OldManAndTheSea.World
             SOUTH = 3,
         }
 
-        public Vector3 EastToWest_Back => Water_Right_Back - Water_Left_Back;
-        public Vector3 WestToEast_Back => -EastToWest_Back;
+        public Vector3 EastToWest_Back => -WestToEast_Back;
+        public Vector3 WestToEast_Back => Water_Right_Back - Water_Left_Back;
         public Vector3 EastToWest_Normalized => EastToWest_Back.normalized;
         public Vector3 WestToEast_Normalized => -EastToWest_Normalized;
 
         public Vector3 Water_Middle_Bottom => Vector3.Lerp(Water_Left_Front, Water_Right_Front, 0.1f);
         public Vector3 Water_Middle_Top => Vector3.Lerp(Water_Left_Back, Water_Right_Back, 0.1f);
 
+        public Vector3 Water_Left => -Water_Right;
         public Vector3 Water_Right => WestToEast_Normalized;
         public Vector3 Water_Forward => (Water_Middle_Top - Water_Middle_Bottom).normalized;
-        public Vector3 Water_Up => Vector3.Cross(Water_Right, Water_Forward);
+        public Vector3 Water_Up => Vector3.Cross(Water_Left, Water_Forward);
         
         public Vector3 GetNorth(Vector3 position)
         {
@@ -89,6 +90,11 @@ namespace OldManAndTheSea.World
             SetupWaterQuad();
         }
 
+        // private void Start()
+        // {
+        //     SetupWaterQuad();
+        // }
+
         public Vector3 CoordinatesToWorldPoint(Vector2 coordinates)
         {
             // var leftEdge = LeftBack - LeftFront;
@@ -97,12 +103,15 @@ namespace OldManAndTheSea.World
             // var heightDelta = LeftBack
 
             var heightDelta = Water_Left_Back.y - Water_Left_Front.y;
-            var yWorld = heightDelta * coordinates.y + Water_Left_Front.y; 
+            var yWorld = heightDelta * coordinates.y + Water_Left_Front.y;
+
+            var topWidth = Water_Right_Back.x - Water_Left_Back.x;
+            var bottomWidth = Water_Right_Front.x - Water_Left_Front.x;
+            var widthDelta = topWidth - bottomWidth;
+            var widthAtY = coordinates.y * widthDelta + bottomWidth;
+            var xAtY = coordinates.y * (Water_Left_Back.x - Water_Left_Front.x) + Water_Left_Front.x;
             
-            var widthDelta = Water_Left_Back.x - Water_Left_Front.x;
-            var widthAtY = coordinates.y * widthDelta;
-            
-            var xWorld = widthAtY * coordinates.x;
+            var xWorld = widthAtY * coordinates.x + xAtY;
 
             var depthDelta = Water_Left_Back.z - Water_Left_Front.z;
             var zWorld = depthDelta * coordinates.y + Water_Left_Front.z;
