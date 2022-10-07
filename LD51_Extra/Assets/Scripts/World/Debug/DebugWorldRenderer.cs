@@ -36,7 +36,7 @@ namespace OldManAndTheSea.World
 
         private void UpdateSeaLinePosition()
         {
-            var seaHeight = WorldManager.Instance.SeaScreenHeight;
+            var seaHeight = WorldManager.Instance.Data.SeaScreenHeight;
             
             var screenPosition1 = new Vector3(0f, seaHeight);
             var screenPosition2 = new Vector3(Screen.width, seaHeight);

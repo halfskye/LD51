@@ -4,6 +4,9 @@ namespace OldManAndTheSea.Utilities
 {
     public static class ScreenUtilities
     {
+        public static Camera Camera => Camera.main;
+        
+        //@TODO: Maybe use Screen.safeArea as well ?
         public static float ScreenHeight => Screen.height;
         public static float ScreenHeightHalf => ScreenHeight / 2f; 
         public static float ScreenWidth => Screen.width;

@@ -128,8 +128,8 @@ namespace OldManAndTheSea
             var position = worldManager.CoordinatesToWorldPoint(coords);
             this.transform.position = position;
 
-            var rotation = _isPlayer ? worldManager.WestToEast_Normalized : worldManager.EastToWest_Normalized;
-            this.transform.rotation = quaternion.LookRotation(rotation, worldManager.Water_Up);
+            var rotation = _isPlayer ? worldManager.Data.WestToEast_Normalized : worldManager.Data.EastToWest_Normalized;
+            this.transform.rotation = quaternion.LookRotation(rotation, worldManager.Data.Sea_Up);
 
             _randomRotation = Random.Range(_randomRotationRange.x, _randomRotationRange.y);
         }

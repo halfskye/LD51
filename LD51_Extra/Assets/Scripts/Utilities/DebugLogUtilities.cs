@@ -30,7 +30,7 @@ namespace OldManAndTheSea.Utilities
             { DebugLogType.UTILITIES, false }
             , { DebugLogType.SEA_MANAGER, false }
             , { DebugLogType.WORLD_MANAGER, false }
-            , { DebugLogType.SHIP, true }
+            , { DebugLogType.SHIP, false }
         };
 
         [Conditional(DefaultDebugDefine)]

@@ -13,6 +13,8 @@ namespace OldManAndTheSea.World
         [SerializeField] private bool _useOverride = false;
         [SerializeField] private Vector3 _worldPosition = Vector3.zero;
         
+        private Camera c => Camera.main;
+        
         private void Update()
         {
             UpdatePossibleOverride();
@@ -26,14 +28,15 @@ namespace OldManAndTheSea.World
         {
             if (_useOverride)
             {
-                var thisTransform = this.transform;
-                if (!thisTransform.position.Approximately(_worldPosition))
-                {
-                    var screenPosition = WorldManager.Instance.WorldToScreenPosition(_worldPosition);
-                    var worldPosition = ScreenUtilities.ScreenToWorldPointMono(screenPosition);
-                    worldPosition.z = 0f;
-                    thisTransform.position = worldPosition;
-                }
+                //@TODO: No longer accurate:
+                // var thisTransform = this.transform;
+                // if (!thisTransform.position.Approximately(_worldPosition))
+                // {
+                //     var screenPosition = WorldManager.Instance.WorldToScreenPosition(_worldPosition);
+                //     var worldPosition = ScreenUtilities.ScreenToWorldPointMono(screenPosition);
+                //     worldPosition.z = 0f;
+                //     thisTransform.position = worldPosition;
+                // }
             }
         }
         
@@ -54,7 +57,8 @@ namespace OldManAndTheSea.World
 
         private void UpdateMovement(Vector3 direction)
         {
-            this.transform.position += direction * (_movementSpeed * Time.deltaTime);
+            //@TODO: No longer accurate:
+            // this.transform.position += direction * (_movementSpeed * Time.deltaTime);
         }
 
         private void UpdateVisual()
@@ -68,10 +72,11 @@ namespace OldManAndTheSea.World
         private void LogPosition()
         {
             var worldPosition = this.transform.position;
-            var screenPosition = Camera.main.WorldToScreenPoint(worldPosition, Camera.MonoOrStereoscopicEye.Mono);
-            var seaWorldPosition = WorldManager.Instance.ScreenToWorldPosition(screenPosition);
+            var screenPosition = c.WorldToScreenPoint(worldPosition, Camera.MonoOrStereoscopicEye.Mono);
+            var viewPortPosition = c.WorldToViewportPoint(worldPosition, Camera.MonoOrStereoscopicEye.Mono);
+            // var seaWorldPosition = WorldManager.Instance.ScreenToWorldPosition(screenPosition);
             DebugLog($"Screen Position: {screenPosition}\n" +
-                     $"Sea World Position: {seaWorldPosition}\n" +
+                     // $"Sea World Position: {seaWorldPosition}\n" +
                      $"World Position: {worldPosition}");
         }
 
