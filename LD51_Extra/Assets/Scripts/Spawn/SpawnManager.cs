@@ -40,7 +40,7 @@ namespace OldManAndTheSea.Spawn
 
         private void SelectNextObject()
         {
-            _nextObjectIndex = Random.Range(0, _settings.ObjectsSpawnData.Count - 1);
+            _nextObjectIndex = Random.Range(0, _settings.ObjectsSpawnData.Count);
             _timer = _settings.ObjectsSpawnData[_nextObjectIndex].RandomSpawnTime;
         }
     }

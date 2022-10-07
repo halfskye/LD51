@@ -110,6 +110,26 @@ PrefabInstance:
       value: 0.95000005
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _oscillateRotation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _oscillationExtents.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _oscillationExtents.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _startRotationRange.x
+      value: -92.18182
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _startRotationRange.y
+      value: -48.545464
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _randomRotationRange.x
       value: -0.5
       objectReference: {fileID: 0}
