@@ -74,6 +74,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714c21600d7c4e4298b6a81b17d36160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _sisterRenderer: {fileID: 0}
+--- !u!23 &2846460271347653746 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3200914132230956897, guid: 775f1f0ab10f7534d9f4c5904a5a47ab, type: 3}
+  m_PrefabInstance: {fileID: 858858187809831699}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4368924418176052679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85,6 +91,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPCShip_China
       objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _sailVisual
+      value: 
+      objectReference: {fileID: 5051687959443932828}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _movementSpeed
       value: 1
@@ -183,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8782560402800692746, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
@@ -206,6 +216,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AllowInScenePoolables: 1
   poolItemName: NPCShip_China
+--- !u!1 &6756264237638187960 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7017341711792772735, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+  m_PrefabInstance: {fileID: 4368924418176052679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5051687959443932828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6756264237638187960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c297e0039025487fbef8d4d4318a9c06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderer: {fileID: 2846460271347653746}
+  _turnOnTime: 0
+  _turnOffTime: 0
 --- !u!4 &8848124600400734509 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5074241684895565034, guid: 50e91c751975e5b41a53154544ca665a, type: 3}

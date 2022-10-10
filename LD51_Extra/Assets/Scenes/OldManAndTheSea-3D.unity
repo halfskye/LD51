@@ -1382,6 +1382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3694766302080993532, guid: e6a998ceffa831a41aa8be44e788066c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5672900891533445262, guid: e6a998ceffa831a41aa8be44e788066c, type: 3}
       propertyPath: _firstSpawnWaitTime
       value: 10
@@ -1503,6 +1507,14 @@ PrefabInstance:
     - target: {fileID: 3960008748788049070, guid: e594d07a65dce5f49b6ab5f092cf3c7e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158422262142354297, guid: e594d07a65dce5f49b6ab5f092cf3c7e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7387258629124459755, guid: e594d07a65dce5f49b6ab5f092cf3c7e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e594d07a65dce5f49b6ab5f092cf3c7e, type: 3}

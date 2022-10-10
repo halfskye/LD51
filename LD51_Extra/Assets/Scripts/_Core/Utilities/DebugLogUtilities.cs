@@ -14,6 +14,7 @@ namespace OldManAndTheSea.Utilities
         /// </summary>
         public enum DebugLogType
         {
+            CORE = -1,
             UTILITIES = 0,
             SEA_MANAGER = 1,
             WORLD_MANAGER = 2,
@@ -27,7 +28,8 @@ namespace OldManAndTheSea.Utilities
         /// </summary>
         private static readonly Dictionary<DebugLogType, bool> DebugLogTypeEnabledMap = new Dictionary<DebugLogType, bool>()
         {
-            { DebugLogType.UTILITIES, false }
+            { DebugLogType.CORE, true }
+            , { DebugLogType.UTILITIES, false }
             , { DebugLogType.SEA_MANAGER, false }
             , { DebugLogType.WORLD_MANAGER, false }
             , { DebugLogType.SHIP, false }

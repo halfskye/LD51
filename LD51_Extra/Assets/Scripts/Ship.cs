@@ -41,9 +41,14 @@ namespace OldManAndTheSea
         [SerializeField, HideIf("@!_oscillateRotation")] private float _oscillationSpeed = 0.1f;
         private float _currentOscillation = 0f;
         private float _oscillationDirection = 1f;
-
+        
+        private const string VISUALS_TITLE = "Visuals";
+        [TitleGroup("@VISUALS_TITLE")]
+        [SerializeField] private MeshRendererController _sailVisual = null;
+        [SerializeField] private MeshRendererController _stopVisual = null;
+        
         private bool _hasBecomeVisible = false;
-        private const float MAX_INVISIBLE_TIME = 10f;
+        private const float MAX_INVISIBLE_TIME = 30f;
         private float _invisibleTimer = 0f;
         
         private void Start()
@@ -160,10 +165,19 @@ namespace OldManAndTheSea
             var movementSpeed = Mathf.Max(0f, direction.y * _movementSpeed * Time.deltaTime);
             shipTransform.position += shipTransform.forward * movementSpeed;
 
+            var isPastSeaEdge = false;
             if (shipTransform.position.z > WorldManager.Instance.Data.Sea_Middle_Top.z)
             {
+                isPastSeaEdge = true;
                 var delta = shipTransform.position.z - WorldManager.Instance.Data.Sea_Middle_Top.z;
                 shipTransform.position -= WorldManager.Instance.Data.Sea_Up * (delta * _movementSpeed / 7f * Time.deltaTime);
+            }
+
+            var isNearlyStopped = !isPastSeaEdge && direction.y < 0.6f && (_oscillationDirection * _currentOscillation >= 0f);
+            _sailVisual.Turn(!isNearlyStopped || _stopVisual == null);
+            if (_stopVisual != null)
+            {
+                _stopVisual.Turn(isNearlyStopped);
             }
         }
 

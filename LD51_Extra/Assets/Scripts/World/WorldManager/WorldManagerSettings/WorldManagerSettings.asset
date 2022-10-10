@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 058a755936944a879948470e4df78f04, type: 3}
   m_Name: WorldManagerSettings
   m_EditorClassIdentifier: 
+  _cameraFOV: 45
   _seaToSkyRatio: 0.7
   _seaDistanceFromCamera: 25
   _seaNearWidth: 20
   _seaFarWidth: 100
-  _seaDistanceLogBase: 2

@@ -22,7 +22,7 @@ namespace OldManAndTheSea.Utilities
         private void DebugLogError(string message, Object context)
         {
             context = context != null ? context : this;
-            DebugLogUtilities.LogError(DebugLogUtilities.DebugLogType.UTILITIES, message, context);
+            DebugLogUtilities.LogError(DebugLogUtilities.DebugLogType.CORE, message, context);
         }
     }
 }
