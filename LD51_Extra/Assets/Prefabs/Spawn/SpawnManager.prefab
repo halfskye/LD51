@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings: {fileID: 11400000, guid: d397b450ce0e0284f87b55bbe640e780, type: 2}
-  _firstSpawnWaitTime: 3
+  _firstSpawnWaitTime: 10
+  _spawnSpeedOverride: 5
 --- !u!1001 &5769609838507902328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -136,15 +137,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[1].itemHardLimit
-      value: 10
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[2].itemHardLimit
-      value: 10
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[3].itemHardLimit
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[4].itemHardLimit
@@ -152,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[5].itemHardLimit
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[0].prefabTransform

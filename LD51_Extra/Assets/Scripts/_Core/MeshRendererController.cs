@@ -9,12 +9,11 @@ namespace OldManAndTheSea.Utilities
 {
     public class MeshRendererController : MonoBehaviour
     {
-        private const string ALBEDO_COLOR_NAME = "_Color";
-        private const string SPECULAR_COLOR_NAME = "_SpecColor";
-        
-        private const string MODE_NAME = "_Mode";
-        private const float MODE_TRANSPARENT_VALUE = 3f;
+        [SerializeField, ListDrawerSettings(Expanded = true, DraggableItems = true)]
+        private List<Material> _affectedMaterials = null;
 
+        [SerializeField] private bool _allOtherMaterialsInvisible = false;
+        
         public class ColorData
         {
             public Color OriginalColor { get; private set; }
@@ -40,10 +39,10 @@ namespace OldManAndTheSea.Utilities
             
             public MaterialColorData(Material material)
             {
-                AlbedoColorData = new ColorData(material.GetColor(ALBEDO_COLOR_NAME));
-                SpecularColorData = new ColorData(material.GetColor(SPECULAR_COLOR_NAME));
+                AlbedoColorData = new ColorData(StandardShaderUtils.GetAlbedoColor(material));
+                SpecularColorData = new ColorData(StandardShaderUtils.GetSpecularColor(material));
 
-                OriginalMode = material.GetFloat(MODE_NAME);
+                OriginalMode = StandardShaderUtils.GetBlendModeValue(material);
             }
         }
         
@@ -72,12 +71,36 @@ namespace OldManAndTheSea.Utilities
         
         private void Awake()
         {
+            var sharedMaterials = _meshRenderer.sharedMaterials;
             var materials = _meshRenderer.materials;
-            materials.ForEach(x => _materialColorMap.Add(x, new MaterialColorData(x)));
+
+            var materialsAndShared = materials.Zip(sharedMaterials, (m, s) => new 
+            {
+                Material = m, Shared = s,
+            });
+            materialsAndShared.ForEach(x =>
+            {
+                var material = x.Material;
+                if (_affectedMaterials.Contains(x.Shared))
+                {
+                    _materialColorMap.Add(material, new MaterialColorData(material));
+                }
+                else if(_allOtherMaterialsInvisible)
+                {
+                    SetMaterialToInvisible(material);
+                }
+            });
 
             _state = State.IDLE;
             _turnOnSpeed = 1f / _turnOnTime;
             _turnOffSpeed = 1f / _turnOffTime;
+        }
+
+        private void SetMaterialToInvisible(Material material)
+        {
+            StandardShaderUtils.ChangeRenderMode(material, StandardShaderUtils.BlendMode.Transparent);
+            StandardShaderUtils.SetAlbedoColor(material, StandardShaderUtils.InvisibleColor);
+            StandardShaderUtils.SetSpecularColor(material, StandardShaderUtils.InvisibleColor);
         }
 
         public void Turn(bool on)
@@ -150,20 +173,28 @@ namespace OldManAndTheSea.Utilities
 
         private void UpdateMaterial(ref Material material, ref MaterialColorData colorData, float delta)
         {
-            // material.SetFloat(MODE_NAME, MODE_TRANSPARENT_VALUE);
-            StandardShaderUtils.ChangeRenderMode(material, StandardShaderUtils.BlendMode.Transparent);
-
             var albedoColor = colorData.AlbedoColorData.ActiveColor;
             albedoColor.a += delta;
-            ClampAlphaColor(ref albedoColor, 0f, colorData.AlbedoColorData.OriginalColor.a);
+            var originalAlbedoAlpha = colorData.AlbedoColorData.OriginalColor.a;
+            ClampAlphaColor(ref albedoColor, 0f, originalAlbedoAlpha);
             colorData.AlbedoColorData.SetActiveColor(albedoColor);
-            material.SetColor(ALBEDO_COLOR_NAME, albedoColor);
+            StandardShaderUtils.SetAlbedoColor(material, albedoColor);
 
             var specularColor = colorData.SpecularColorData.ActiveColor;
             specularColor.a += delta;
             ClampAlphaColor(ref specularColor, 0f, colorData.SpecularColorData.OriginalColor.a);
             colorData.SpecularColorData.SetActiveColor(specularColor);
-            material.SetColor(SPECULAR_COLOR_NAME, specularColor);
+            StandardShaderUtils.SetSpecularColor(material, specularColor);
+            
+            // Material mode
+            var blendModeValue = Mathf.Approximately(albedoColor.a, originalAlbedoAlpha)
+                ? colorData.OriginalMode
+                :  StandardShaderUtils.GetBlendModeValue(StandardShaderUtils.BlendMode.Transparent);
+            
+            if(!Mathf.Approximately(blendModeValue, StandardShaderUtils.GetBlendModeValue(material)))
+            {
+                StandardShaderUtils.ChangeRenderMode(material, StandardShaderUtils.GetBlendMode(blendModeValue));
+            }
         }
 
         private void ClampAlphaColor(ref Color color, float min, float max)

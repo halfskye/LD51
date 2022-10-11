@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ship-colonial-small-flags
       objectReference: {fileID: 0}
+    - target: {fileID: 5911057743965976390, guid: 66c922cf3ec290f4d960715c031a46ba, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66c922cf3ec290f4d960715c031a46ba, type: 3}
 --- !u!23 &596975631289325356 stripped
@@ -79,7 +83,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714c21600d7c4e4298b6a81b17d36160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sisterRenderer: {fileID: 2931498951800216755}
 --- !u!1001 &8477963443508859180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133,6 +136,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5567061335754372848, guid: 80652eb6ddace344eb739d098317c134, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703889617968205215, guid: 80652eb6ddace344eb739d098317c134, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703889617968205215, guid: 80652eb6ddace344eb739d098317c134, type: 3}
+      propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -280,9 +291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c297e0039025487fbef8d4d4318a9c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _affectedMaterials:
+  - {fileID: 2100000, guid: f9c4a99059a34d842b70997d0245fde2, type: 2}
+  _allOtherMaterialsInvisible: 1
   _meshRenderer: {fileID: 2931498951800216755}
-  _turnOnTime: 2
-  _turnOffTime: 1
+  _turnOnTime: 0.25
+  _turnOffTime: 0.25
 --- !u!1 &2029643794182559507 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7017341711792772735, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
@@ -300,9 +314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c297e0039025487fbef8d4d4318a9c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _affectedMaterials:
+  - {fileID: 2100000, guid: f9c4a99059a34d842b70997d0245fde2, type: 2}
+  _allOtherMaterialsInvisible: 0
   _meshRenderer: {fileID: 596975631289325356}
-  _turnOnTime: 2
-  _turnOffTime: 1
+  _turnOnTime: 0.5
+  _turnOffTime: 0.1
 --- !u!4 &4261380170953082246 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5074241684895565034, guid: 50e91c751975e5b41a53154544ca665a, type: 3}

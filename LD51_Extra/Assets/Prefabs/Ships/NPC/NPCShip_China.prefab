@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: boat-china
       objectReference: {fileID: 0}
+    - target: {fileID: 3200914132230956897, guid: 775f1f0ab10f7534d9f4c5904a5a47ab, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 775f1f0ab10f7534d9f4c5904a5a47ab, type: 3}
 --- !u!1 &2846460271345713842 stripped
@@ -74,7 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714c21600d7c4e4298b6a81b17d36160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sisterRenderer: {fileID: 0}
 --- !u!23 &2846460271347653746 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 3200914132230956897, guid: 775f1f0ab10f7534d9f4c5904a5a47ab, type: 3}
@@ -233,6 +236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c297e0039025487fbef8d4d4318a9c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _affectedMaterials: []
+  _allOtherMaterialsInvisible: 0
   _meshRenderer: {fileID: 2846460271347653746}
   _turnOnTime: 0
   _turnOffTime: 0

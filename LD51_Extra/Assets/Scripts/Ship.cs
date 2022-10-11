@@ -1,8 +1,8 @@
-﻿using System;
-using DarkTonic.PoolBoss;
+﻿using DarkTonic.PoolBoss;
 using OldManAndTheSea.Utilities;
 using OldManAndTheSea.World;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -50,7 +50,14 @@ namespace OldManAndTheSea
         private bool _hasBecomeVisible = false;
         private const float MAX_INVISIBLE_TIME = 30f;
         private float _invisibleTimer = 0f;
-        
+
+        private Renderer[] _renderers = null;
+
+        private void Awake()
+        {
+            _renderers = this.GetComponentsInChildren<Renderer>();
+        }
+
         private void Start()
         {
             SetStartState();
@@ -170,7 +177,8 @@ namespace OldManAndTheSea
             {
                 isPastSeaEdge = true;
                 var delta = shipTransform.position.z - WorldManager.Instance.Data.Sea_Middle_Top.z;
-                shipTransform.position -= WorldManager.Instance.Data.Sea_Up * (delta * _movementSpeed / 7f * Time.deltaTime);
+                var crestDirection = WorldManager.Instance.Data.Sea_Up / 10f  + WorldManager.Instance.Data.Sea_Forward / 5f;
+                shipTransform.position -= crestDirection * (delta * _movementSpeed * Time.deltaTime);
             }
 
             var isNearlyStopped = !isPastSeaEdge && direction.y < 0.6f && (_oscillationDirection * _currentOscillation >= 0f);
@@ -190,6 +198,16 @@ namespace OldManAndTheSea
                 {
                     Despawn();
                 }
+            }
+            else
+            {
+                _renderers.ForEach(x =>
+                {
+                    if (!GeometryUtility.TestPlanesAABB(WorldManager.Instance.Data.CameraFrustumPlanes, x.bounds))
+                    {
+                        Despawn();
+                    }
+                });
             }
         }
 

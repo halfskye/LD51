@@ -25,6 +25,8 @@ namespace OldManAndTheSea.World
         
         public float SeaToSkyRatio { get; private set; }
         public float SeaScreenHeight { get; private set; }
+        
+        public Plane[] CameraFrustumPlanes { get; private set; }
 
         public void SetupFromSettings(WorldManagerSettings settings)
         {
@@ -63,6 +65,8 @@ namespace OldManAndTheSea.World
 
             SeaToSkyRatio = settings.SeaToSkyRatio;
             SeaScreenHeight = ScreenUtilities.ScreenHeight * SeaToSkyRatio;
+
+            CameraFrustumPlanes = GeometryUtility.CalculateFrustumPlanes(c);
         }
         
         public Vector3 CoordinatesToWorldPoint(Vector2 coordinates)

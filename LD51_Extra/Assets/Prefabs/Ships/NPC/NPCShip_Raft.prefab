@@ -55,6 +55,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2367118, guid: a7f2ec33b78ffb54d97d3f27615965fb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367118, guid: a7f2ec33b78ffb54d97d3f27615965fb, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7f2ec33b78ffb54d97d3f27615965fb, type: 3}
 --- !u!23 &1814008338607433548 stripped
@@ -177,6 +185,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2283344490427441151, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283344490427441151, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2283344490427441151, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7017341711792772735, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8782560402800692746, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -224,8 +248,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c297e0039025487fbef8d4d4318a9c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _affectedMaterials:
+  - {fileID: 2100000, guid: f9c4a99059a34d842b70997d0245fde2, type: 2}
+  _allOtherMaterialsInvisible: 0
   _meshRenderer: {fileID: 6181770940736789907}
-  _turnOnTime: 2
+  _turnOnTime: 0.5
   _turnOffTime: 1
 --- !u!1 &6622315791158973329 stripped
 GameObject:
@@ -244,9 +271,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c297e0039025487fbef8d4d4318a9c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _affectedMaterials:
+  - {fileID: 2100000, guid: f9c4a99059a34d842b70997d0245fde2, type: 2}
+  _allOtherMaterialsInvisible: 0
   _meshRenderer: {fileID: 1814008338607433548}
-  _turnOnTime: 2
-  _turnOffTime: 1
+  _turnOnTime: 0.25
+  _turnOffTime: 0.25
 --- !u!4 &7236597312691853681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5074241684895565034, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
@@ -307,6 +337,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2388258, guid: cb47b27a685f52542b2ac0a342ac8704, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb47b27a685f52542b2ac0a342ac8704, type: 3}
 --- !u!1 &6181770940734789831 stripped
@@ -326,7 +360,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714c21600d7c4e4298b6a81b17d36160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sisterRenderer: {fileID: 1814008338607433548}
 --- !u!23 &6181770940736789907 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2388258, guid: cb47b27a685f52542b2ac0a342ac8704, type: 3}
