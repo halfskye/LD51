@@ -104,11 +104,14 @@ namespace OldManAndTheSea
 
         private void Update()
         {
-            var moveAxis = _isPlayer ? UpdateInput() : GetNPCMoveAxis();
-            
-            UpdateMovement(moveAxis);
+            if (!_isPlayer)
+            {
+                var moveAxis = GetNPCMoveAxis();
 
-            UpdateInvisibleSafetyCheck();
+                UpdateMovement(moveAxis);
+
+                UpdateInvisibleSafetyCheck();
+            }
         }
 
         private Vector2 GetNPCMoveAxis()
@@ -144,23 +147,6 @@ namespace OldManAndTheSea
             return 1f - rotateExtentScale;
         }
 
-        private Vector2 UpdateInput()
-        {
-            var axisPosition = Vector2.zero;
-
-            axisPosition.x = Input.GetAxis("Horizontal");
-            axisPosition.y = Input.GetAxis("Vertical");
-
-            UpdateMovement(axisPosition);
-
-            if (Input.GetKeyDown(KeyCode.Keypad0))
-            {
-                LogPosition();
-            }
-
-            return axisPosition;
-        }
-
         private void UpdateMovement(Vector2 direction)
         {
             var shipTransform = this.transform;
@@ -187,6 +173,11 @@ namespace OldManAndTheSea
             {
                 _stopVisual.Turn(isNearlyStopped);
             }
+        }
+
+        public void Move(Vector2 move)
+        {
+            UpdateMovement(move);
         }
 
         private void UpdateInvisibleSafetyCheck()
