@@ -61,19 +61,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: newCategoryName
-      value: Ships
+      value: Projectiles
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: _categories.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: _categories.Array.data[1].CatName
       value: NPCShips
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
+      propertyPath: _categories.Array.data[2].CatName
+      value: Projectiles
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[0].isExpanded
@@ -100,11 +104,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
+      propertyPath: poolItems.Array.data[6].isExpanded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: _categories.Array.data[1].IsEditing
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: _categories.Array.data[1].IsExpanded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
+      propertyPath: _categories.Array.data[2].IsExpanded
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
@@ -132,6 +144,10 @@ PrefabInstance:
       value: NPCShips
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
+      propertyPath: poolItems.Array.data[6].categoryName
+      value: Projectiles
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[0].itemHardLimit
       value: 10
       objectReference: {fileID: 0}
@@ -154,6 +170,10 @@ PrefabInstance:
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[5].itemHardLimit
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
+      propertyPath: poolItems.Array.data[6].itemHardLimit
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[0].prefabTransform
@@ -180,8 +200,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1372564068206234615, guid: c071e626244f8774f8ece031f9f08464, type: 3}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
+      propertyPath: poolItems.Array.data[6].prefabTransform
+      value: 
+      objectReference: {fileID: 4355710091440239665, guid: 9964514f98665c04e8f40abbb2fda19c, type: 3}
+    - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: _categories.Array.data[1].ProspectiveName
       value: NPCShips
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
+      propertyPath: _categories.Array.data[2].ProspectiveName
+      value: Projectiles
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[0].instancesToPreload
@@ -208,6 +236,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
+      propertyPath: poolItems.Array.data[6].instancesToPreload
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[0].allowInstantiateMore
       value: 1
       objectReference: {fileID: 0}
@@ -232,6 +264,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
+      propertyPath: poolItems.Array.data[6].allowInstantiateMore
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[0].delayNavMeshEnableByFrames
       value: 1
       objectReference: {fileID: 0}
@@ -253,6 +289,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[5].delayNavMeshEnableByFrames
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
+      propertyPath: poolItems.Array.data[6].delayNavMeshEnableByFrames
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813597877067, guid: c03adf4996a737444b5701a2249d749f, type: 3}

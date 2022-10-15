@@ -145,10 +145,11 @@ MonoBehaviour:
   _pivot: {fileID: 4787340906426548409}
   _firePoint: {fileID: 4178078375394167613}
   _horizontalExtents: {x: -90, y: 90}
-  _verticalExtents: {x: -90, y: 90}
+  _verticalExtents: {x: 0.97771883, y: 90}
   _horizontalSpeed: 20
   _verticalSpeed: 20
-  _cannonball: {fileID: 0}
+  _cannonballPrefab: {fileID: 4355710091440239665, guid: 9964514f98665c04e8f40abbb2fda19c, type: 3}
+  _cannonForce: 50
 --- !u!1001 &8009467085907784407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -206,6 +207,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1638569416770038, guid: d68eddb8a44e25b44857e9e0c5f916e7, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64444342695280736, guid: d68eddb8a44e25b44857e9e0c5f916e7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64529987695314824, guid: d68eddb8a44e25b44857e9e0c5f916e7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64941143181197206, guid: d68eddb8a44e25b44857e9e0c5f916e7, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

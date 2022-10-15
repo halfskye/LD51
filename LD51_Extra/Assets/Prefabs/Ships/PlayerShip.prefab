@@ -1005,10 +1005,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1336656205}
     m_Modifications:
     - target: {fileID: 6765354905690357326, guid: e22d7d322a6d2b34f9d3e8985a9ec8c1, type: 3}
-      propertyPath: _verticalExtents.x
-      value: -45.334465
-      objectReference: {fileID: 0}
-    - target: {fileID: 6765354905690357326, guid: e22d7d322a6d2b34f9d3e8985a9ec8c1, type: 3}
       propertyPath: _verticalExtents.y
       value: 44.716995
       objectReference: {fileID: 0}

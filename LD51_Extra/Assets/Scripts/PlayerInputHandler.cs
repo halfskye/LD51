@@ -27,9 +27,12 @@ namespace OldManAndTheSea
         
         public void Fire(InputAction.CallbackContext context)
         {
-            DebugLog("Fire!");
-            
-            _player.Fire();
+            if (context.performed)
+            {
+                DebugLog("Fire!");
+
+                _player.Fire();
+            }
         }
 
         private void DebugLog(string message)
