@@ -144,12 +144,12 @@ MonoBehaviour:
   _visual: {fileID: 3979736435419930390}
   _pivot: {fileID: 4787340906426548409}
   _firePoint: {fileID: 4178078375394167613}
-  _horizontalExtents: {x: -90, y: 90}
-  _verticalExtents: {x: 0.97771883, y: 90}
+  _horizontalExtents: {x: -45.334465, y: 44.716995}
+  _verticalExtents: {x: 0.97771883, y: 44.716995}
   _horizontalSpeed: 20
   _verticalSpeed: 20
   _cannonballPrefab: {fileID: 4355710091440239665, guid: 9964514f98665c04e8f40abbb2fda19c, type: 3}
-  _cannonForce: 50
+  _cannonForce: 75
 --- !u!1001 &8009467085907784407
 PrefabInstance:
   m_ObjectHideFlags: 0

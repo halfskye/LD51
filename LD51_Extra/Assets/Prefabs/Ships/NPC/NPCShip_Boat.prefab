@@ -59,6 +59,14 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 64618794104008378, guid: a059c4ac190b41743b10d5c9ddf4ae00, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64618794104008378, guid: a059c4ac190b41743b10d5c9ddf4ae00, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a059c4ac190b41743b10d5c9ddf4ae00, type: 3}
 --- !u!1 &1395912864268384283 stripped
@@ -95,6 +103,10 @@ PrefabInstance:
       value: NPCShip_Boat
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _sunkDepth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _sailVisual
       value: 
       objectReference: {fileID: 5016189294800985873}
@@ -121,6 +133,10 @@ PrefabInstance:
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: yCoordRandom.y
       value: 0.95000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _sinkAcceleration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _oscillateRotation

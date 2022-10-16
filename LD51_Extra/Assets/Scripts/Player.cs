@@ -1,7 +1,7 @@
-﻿using System;
+﻿using System.Linq;
 using OldManAndTheSea.Weapons;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace OldManAndTheSea
 {
@@ -44,5 +44,15 @@ namespace OldManAndTheSea
         {
             _cannon.Fire();
         }
+
+        #if DEBUG
+        public void SinkRandomShip()
+        {
+            var allShips = FindObjectsOfType<Ship>();
+            var ships = allShips.Where(x => x.IsAlive && !x.IsPlayer).ToArray();
+            var ship = ships[Random.Range(0, ships.Length)];
+            ship.Sink();
+        }
+        #endif // DEBUG
     }
 }

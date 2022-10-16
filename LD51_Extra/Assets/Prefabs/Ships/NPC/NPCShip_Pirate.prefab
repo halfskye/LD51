@@ -12,6 +12,10 @@ PrefabInstance:
       value: NPCShip_Pirate
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _sunkDepth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _sailVisual
       value: 
       objectReference: {fileID: 7680172610451391997}
@@ -34,6 +38,10 @@ PrefabInstance:
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: yCoordRandom.y
       value: 0.95000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _sinkAcceleration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _oscillateRotation
@@ -203,6 +211,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ship-pirate-flags
       objectReference: {fileID: 0}
+    - target: {fileID: 6575409990350175634, guid: 985ee24351490c948886a4ddb6ddc7f6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6686215906690669158, guid: 985ee24351490c948886a4ddb6ddc7f6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -328,6 +340,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5940181204663310076, guid: b8c7ce7f0065c874d937562002bffb77, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6189487575977554196, guid: b8c7ce7f0065c874d937562002bffb77, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6423280932326263878, guid: b8c7ce7f0065c874d937562002bffb77, type: 3}

@@ -63,6 +63,10 @@ PrefabInstance:
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6438684, guid: a7f2ec33b78ffb54d97d3f27615965fb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7f2ec33b78ffb54d97d3f27615965fb, type: 3}
 --- !u!23 &1814008338607433548 stripped
@@ -80,6 +84,10 @@ PrefabInstance:
     - target: {fileID: 375347229346255064, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: m_Name
       value: NPCShip_Raft
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _sunkDepth
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _sailVisual
@@ -112,6 +120,10 @@ PrefabInstance:
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: yCoordRandom.y
       value: 0.95000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _sinkAcceleration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _oscillateRotation
@@ -339,6 +351,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2388258, guid: cb47b27a685f52542b2ac0a342ac8704, type: 3}
       propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6466202, guid: cb47b27a685f52542b2ac0a342ac8704, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6466202, guid: cb47b27a685f52542b2ac0a342ac8704, type: 3}
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

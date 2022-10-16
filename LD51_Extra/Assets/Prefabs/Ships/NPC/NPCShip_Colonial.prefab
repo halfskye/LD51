@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6772079102448743790, guid: cab20a9a3e2206343823c22bf8b13b38, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cab20a9a3e2206343823c22bf8b13b38, type: 3}
 --- !u!1 &5650210741592647057 stripped
@@ -146,6 +150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4539276548538620776, guid: 6263f1ae6d4186647a50890edb76cfbc, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6263f1ae6d4186647a50890edb76cfbc, type: 3}
 --- !u!23 &227059833851709550 stripped
@@ -163,6 +171,10 @@ PrefabInstance:
     - target: {fileID: 375347229346255064, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: m_Name
       value: NPCShip_Colonial
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _sunkDepth
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _sailVisual
@@ -195,6 +207,10 @@ PrefabInstance:
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: yCoordRandom.y
       value: 0.95000005
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _sinkAcceleration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _oscillateRotation

@@ -51,6 +51,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5028794631606463425, guid: 66c922cf3ec290f4d960715c031a46ba, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5262658212817426067, guid: 66c922cf3ec290f4d960715c031a46ba, type: 3}
       propertyPath: m_Name
       value: ship-colonial-small-flags
@@ -93,6 +97,10 @@ PrefabInstance:
     - target: {fileID: 5046842374790261834, guid: 80652eb6ddace344eb739d098317c134, type: 3}
       propertyPath: m_Name
       value: ship-colonial-small
+      objectReference: {fileID: 0}
+    - target: {fileID: 5388721569219350808, guid: 80652eb6ddace344eb739d098317c134, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5567061335754372848, guid: 80652eb6ddace344eb739d098317c134, type: 3}
       propertyPath: m_RootOrder
@@ -165,6 +173,10 @@ PrefabInstance:
       value: NPCShip_Colonial-Small
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _sunkDepth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _sailVisual
       value: 
       objectReference: {fileID: 3437533987626372231}
@@ -195,6 +207,10 @@ PrefabInstance:
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _useRandomCoords
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _sinkAcceleration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _oscillateRotation

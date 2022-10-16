@@ -529,6 +529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _isPlayer: 1
+  _health: 50
   _useRandomCoords: 0
   xCoord: 0.25
   yCoord: 0.05
@@ -541,6 +542,8 @@ MonoBehaviour:
   _oscillateRotation: 0
   _oscillationExtents: {x: -1, y: 1}
   _oscillationSpeed: 0.1
+  _sinkAcceleration: 0.001
+  _sunkDepth: 0.5
   _sailVisual: {fileID: 7897175832409172010}
   _stopVisual: {fileID: 8523933186037277791}
 --- !u!1 &3960008748823967133
@@ -981,6 +984,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6189487575977554196, guid: b8c7ce7f0065c874d937562002bffb77, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6423280932326263878, guid: b8c7ce7f0065c874d937562002bffb77, type: 3}
       propertyPath: m_Name
       value: ship-pirate
@@ -1004,18 +1011,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1336656205}
     m_Modifications:
-    - target: {fileID: 6765354905690357326, guid: e22d7d322a6d2b34f9d3e8985a9ec8c1, type: 3}
-      propertyPath: _verticalExtents.y
-      value: 44.716995
-      objectReference: {fileID: 0}
-    - target: {fileID: 6765354905690357326, guid: e22d7d322a6d2b34f9d3e8985a9ec8c1, type: 3}
-      propertyPath: _horizontalExtents.x
-      value: -45.334465
-      objectReference: {fileID: 0}
-    - target: {fileID: 6765354905690357326, guid: e22d7d322a6d2b34f9d3e8985a9ec8c1, type: 3}
-      propertyPath: _horizontalExtents.y
-      value: 44.716995
-      objectReference: {fileID: 0}
     - target: {fileID: 8661198735308386783, guid: e22d7d322a6d2b34f9d3e8985a9ec8c1, type: 3}
       propertyPath: m_Name
       value: Cannon
@@ -1081,6 +1076,10 @@ PrefabInstance:
     - target: {fileID: 6305573143900405980, guid: 985ee24351490c948886a4ddb6ddc7f6, type: 3}
       propertyPath: m_Name
       value: ship-pirate-flags
+      objectReference: {fileID: 0}
+    - target: {fileID: 6575409990350175634, guid: 985ee24351490c948886a4ddb6ddc7f6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6686215906690669158, guid: 985ee24351490c948886a4ddb6ddc7f6, type: 3}
       propertyPath: m_RootOrder

@@ -12,11 +12,15 @@ namespace OldManAndTheSea
     public class Ship : MonoBehaviour
     {
         [SerializeField] private bool _isPlayer = false;
+        public bool IsPlayer => _isPlayer;
 
         private const string STARTING_STATE_TITLE = "Starting State";
         private const float COORDS_EXTENT_LOWER = -0.25f;
         private const float COORDS_EXTENT_UPPER = 1.25f;
+
         [TitleGroup("@STARTING_STATE_TITLE")]
+        [SerializeField] private float _health = 20f;
+        private float _activeHealth = 0f;
         [SerializeField, LabelText("Randomize by Range")] private bool _useRandomCoords = true;
         [HorizontalGroup("Coords")]
         [SerializeField, BoxGroup("Coords/x"), HideIf("@_useRandomCoords"), Range(COORDS_EXTENT_LOWER,COORDS_EXTENT_UPPER), HideLabel] private float xCoord = 0.25f;
@@ -41,6 +45,10 @@ namespace OldManAndTheSea
         [SerializeField, HideIf("@!_oscillateRotation")] private float _oscillationSpeed = 0.1f;
         private float _currentOscillation = 0f;
         private float _oscillationDirection = 1f;
+        [SerializeField] private float _sinkAcceleration = 0.001f;
+        private float _sinkVelocity = 0f;
+        [SerializeField] private float _sunkDepth = 0.5f;
+        private float _activeDepth = 0f;
         
         private const string VISUALS_TITLE = "Visuals";
         [TitleGroup("@VISUALS_TITLE")]
@@ -52,6 +60,15 @@ namespace OldManAndTheSea
         private float _invisibleTimer = 0f;
 
         private Renderer[] _renderers = null;
+        
+        private enum State
+        {
+            Alive = 0,
+            Sinking = 1,
+            Sunk = 2,
+        }
+        private State _state = State.Alive;
+        public bool IsAlive => _state == State.Alive;
 
         private void Awake()
         {
@@ -65,6 +82,9 @@ namespace OldManAndTheSea
 
         private void SetStartState()
         {
+            _state = State.Alive;
+            _activeHealth = _health;
+            
             _hasBecomeVisible = _isPlayer;
             
             var worldManager = WorldManager.Instance;
@@ -104,6 +124,24 @@ namespace OldManAndTheSea
 
         private void Update()
         {
+            switch (_state)
+            {
+                case State.Alive:
+                    UpdateState_Alive();
+                break;
+                case State.Sinking:
+                    UpdateState_Sinking();
+                    break;
+                case State.Sunk:
+                    UpdateState_Sunk();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void UpdateState_Alive()
+        {
             if (!_isPlayer)
             {
                 var moveAxis = GetNPCMoveAxis();
@@ -114,6 +152,31 @@ namespace OldManAndTheSea
             }
         }
 
+        private void UpdateState_Sinking()
+        {
+            _sinkVelocity += _sinkAcceleration * Time.deltaTime * Time.deltaTime;
+            _activeDepth += _sinkVelocity;
+            this.transform.position -= WorldManager.Instance.Data.Sea_Up * _sinkVelocity;
+
+            if (_activeDepth >= _sunkDepth)
+            {
+                _state = State.Sunk;
+            }
+        }
+
+        private void UpdateState_Sunk()
+        {
+            GenerateSunkGoods();
+            
+            Despawn();
+        }
+
+        private void GenerateSunkGoods()
+        {
+        }
+
+        #region Movement
+        
         private Vector2 GetNPCMoveAxis()
         {
             var rotation = UpdateRotation();
@@ -179,6 +242,24 @@ namespace OldManAndTheSea
         {
             UpdateMovement(move);
         }
+        
+        #endregion Movement
+
+        public void TakeDamage(float damage)
+        {
+            _activeHealth -= damage;
+            if (_activeHealth <= 0f)
+            {
+                Sink();
+            }
+        }
+
+        public void Sink()
+        {
+            _state = State.Sinking;
+            _sinkVelocity = 0f;
+            _activeDepth = 0f;
+        }
 
         private void UpdateInvisibleSafetyCheck()
         {
@@ -209,7 +290,10 @@ namespace OldManAndTheSea
 
         private void OnBecameInvisible()
         {
-            Despawn();
+            if (IsAlive)
+            {
+                Despawn();
+            }
         }
 
         #region SPAWN POOL

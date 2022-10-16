@@ -7,7 +7,18 @@ namespace OldManAndTheSea
     public class PlayerInputHandler : MonoBehaviour
     {
         [SerializeField] private Player _player = null;
-        
+
+        //@TEMP/@DEBUG:
+        #if DEBUG
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                _player.SinkRandomShip();
+            }
+        }
+        #endif // DEBUG
+
         public void Move(InputAction.CallbackContext context)
         {
             DebugLog("Move!");

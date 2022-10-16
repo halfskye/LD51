@@ -7,9 +7,13 @@ namespace OldManAndTheSea.Weapons
 {
     public class Cannonball : MonoBehaviour
     {
+        [SerializeField] private float _damage = 10f;
+        
         private Renderer[] _renderers = null;
         private Rigidbody _rigidbody = null;
 
+        private Ship _owner = null;
+        
         private bool _checkVisibility = false;
 
         private void Awake()
@@ -35,14 +39,25 @@ namespace OldManAndTheSea.Weapons
             _checkVisibility = true;
         }
 
-        private void OnCollisionEnter(Collision collision)
+        public void Fire(Ship owner, Vector3 fireForce)
         {
-            DebugLog("Cannonball hit something!");
+            _owner = owner;
+            _rigidbody.AddForce(fireForce, ForceMode.Impulse);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            DebugLog($"Cannonball hit something! {other.name} - {other.tag}");
+            var owner = other.GetComponentInParent<Ship>();
+            if (owner != null && owner != _owner)
+            {
+                owner.TakeDamage(_damage);
+            }
         }
 
         private void Despawn()
         {
-            DebugLog("Cannonball is despawning...");
+            // DebugLog("Cannonball is despawning...");
             PoolBoss.Despawn(this.transform);
         }
 

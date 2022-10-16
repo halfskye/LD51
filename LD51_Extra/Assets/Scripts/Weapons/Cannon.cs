@@ -1,4 +1,5 @@
-﻿using DarkTonic.PoolBoss;
+﻿using System;
+using DarkTonic.PoolBoss;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -21,6 +22,13 @@ namespace OldManAndTheSea.Weapons
         
         private Vector2 _activeEulerXY = Vector2.zero;
 
+        private Ship _owner = null;
+        
+        private void Awake()
+        {
+            _owner = this.GetComponentInParent<Ship>();
+        }
+
         public void Aim(Vector2 aim)
         {
             var newX = _activeEulerXY.x + _horizontalSpeed * aim.x * Time.deltaTime;
@@ -40,10 +48,10 @@ namespace OldManAndTheSea.Weapons
         
         public void Fire()
         {
-            var cannonball = PoolBoss.SpawnInPool(_cannonballPrefab, _firePoint.position, _firePoint.rotation);
+            var cannonballXform = PoolBoss.SpawnInPool(_cannonballPrefab, _firePoint.position, _firePoint.rotation);
+            var cannonball = cannonballXform.GetComponent<Cannonball>();
             var fireForce = _firePoint.forward * _cannonForce;
-            var rigidBody = cannonball.GetComponent<Rigidbody>();
-            rigidBody.AddForce(fireForce, ForceMode.Impulse);
+            cannonball.Fire(_owner, fireForce);
         }
     }
 }
