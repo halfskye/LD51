@@ -12,6 +12,10 @@ PrefabInstance:
       value: NPCShip_Pirate
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _lootTable
+      value: 
+      objectReference: {fileID: 11400000, guid: df1bb9c35d827254795dc98c53261e1e, type: 2}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _sunkDepth
       value: 3
       objectReference: {fileID: 0}
@@ -62,6 +66,22 @@ PrefabInstance:
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _startRotationRange.y
       value: -48.545464
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _lootDeviationRangeX.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _lootDeviationRangeX.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _lootDeviationRangeY.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
+      propertyPath: _lootDeviationRangeY.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 375347229346255066, guid: 50e91c751975e5b41a53154544ca665a, type: 3}
       propertyPath: _randomRotationRange.x

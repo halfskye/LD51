@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 3519072082129482676}
   m_Layer: 0
   m_Name: PlayerInput
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 3519072082315240110}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,6 +258,10 @@ PrefabInstance:
     - target: {fileID: 3960008748788049069, guid: e594d07a65dce5f49b6ab5f092cf3c7e, type: 3}
       propertyPath: m_Name
       value: PlayerShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960008748788049069, guid: e594d07a65dce5f49b6ab5f092cf3c7e, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3960008748788049070, guid: e594d07a65dce5f49b6ab5f092cf3c7e, type: 3}
       propertyPath: m_RootOrder

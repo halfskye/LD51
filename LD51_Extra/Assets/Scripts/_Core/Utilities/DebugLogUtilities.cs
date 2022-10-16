@@ -21,6 +21,7 @@ namespace OldManAndTheSea.Utilities
             SHIP = 3,
             PLAYER_INPUT = 4,
             WEAPONS = 5,
+            LOOT = 6,
         }
 
         private delegate void DebugLogFunction(string message, Object context);
@@ -37,6 +38,7 @@ namespace OldManAndTheSea.Utilities
             , { DebugLogType.SHIP, false }
             , { DebugLogType.PLAYER_INPUT, false }
             , { DebugLogType.WEAPONS, true }
+            , { DebugLogType.LOOT, true }
         };
 
         [Conditional(DefaultDebugDefine)]

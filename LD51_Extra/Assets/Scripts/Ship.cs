@@ -55,6 +55,13 @@ namespace OldManAndTheSea
         [SerializeField] private MeshRendererController _sailVisual = null;
         [SerializeField] private MeshRendererController _stopVisual = null;
         
+        private const string LOOT_TITLE = "Loot";
+
+        [TitleGroup("@LOOT_TITLE")]
+        [SerializeField] private LootTable _lootTable;
+        [SerializeField, MinMaxSlider(-1f,1f)] private Vector2 _lootDeviationRangeX = Vector2.zero;
+        [SerializeField, MinMaxSlider(-1f,1f)] private Vector2 _lootDeviationRangeY = Vector2.zero;
+        
         private bool _hasBecomeVisible = false;
         private const float MAX_INVISIBLE_TIME = 30f;
         private float _invisibleTimer = 0f;
@@ -173,6 +180,23 @@ namespace OldManAndTheSea
 
         private void GenerateSunkGoods()
         {
+            var loot = _lootTable.GenerateLoot();
+            loot.ForEach(lootData =>
+            {
+                GenerateLoot(lootData.Type, lootData.Amount);
+            });
+        }
+
+        private void GenerateLoot(Loot.Type lootType, float amount)
+        {
+            var lootPrefab = _lootTable.GetLootTypePrefab(lootType);
+            var position = this.transform.position;
+            position += WorldManager.Instance.Data.Sea_Right * Random.Range(_lootDeviationRangeX.x, _lootDeviationRangeX.y);
+            position += WorldManager.Instance.Data.Sea_Forward * Random.Range(_lootDeviationRangeY.x, _lootDeviationRangeY.y);
+            var rotation = this.transform.rotation;
+            var spawn = PoolBoss.SpawnInPool(lootPrefab, position, rotation);
+            var loot = spawn.GetComponent<Loot>();
+            loot.Initialize(amount, _sunkDepth);
         }
 
         #region Movement
