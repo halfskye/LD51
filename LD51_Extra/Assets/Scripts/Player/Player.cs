@@ -1,16 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using OldManAndTheSea.Utilities;
 using OldManAndTheSea.Weapons;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace OldManAndTheSea
 {
-    public class Player : MonoBehaviour
+    public class Player : SingletonMonoBehaviour<Player>
     {
         public static string TAG_NAME = "Player";
         
         [SerializeField] private Ship _ship = null;
+        public Vector3 Position => _ship.transform.position;
 
         [SerializeField] private Cannon _cannon = null;
 
@@ -74,6 +76,11 @@ namespace OldManAndTheSea
             var ships = allShips.Where(x => x.IsAlive && !x.IsPlayer).ToArray();
             var ship = ships[Random.Range(0, ships.Length)];
             ship.Sink();
+        }
+
+        public void ResetShip()
+        {
+            _ship.Reset();
         }
         #endif // DEBUG
     }

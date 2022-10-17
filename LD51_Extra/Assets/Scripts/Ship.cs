@@ -87,6 +87,11 @@ namespace OldManAndTheSea
             SetStartState();
         }
 
+        public void Reset()
+        {
+            SetStartState();
+        }
+
         private void SetStartState()
         {
             _state = State.Alive;

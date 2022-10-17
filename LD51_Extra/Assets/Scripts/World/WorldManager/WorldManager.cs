@@ -23,31 +23,6 @@ namespace OldManAndTheSea.World
             NORTH = 2,
             SOUTH = 3,
         }
-
-        // private Vector3 GetNorth(Vector3 position)
-        // {
-        //     var heightDelta = Sea_Left_Back.y - Sea_Left_Front.y;
-        //     var yRatio = (position.y - Sea_Left_Front.y) / heightDelta;
-        //
-        //     var widthDelta = Mathf.Abs(Sea_Left_Back.x - Sea_Left_Front.x) * 2;
-        //     var widthAtY = widthDelta * yRatio;
-        //     DebugLogError($"WidthAtY: {widthAtY}");
-        //
-        //     var xRatio = position.x / widthAtY / 2f;
-        //     DebugLogError($"xRatio: {xRatio}");
-        //     var baseX = (Sea_Right_Front.x - Sea_Left_Front.x) / 2f * xRatio;
-        //
-        //     // var depthDelta = LeftBack.z - LeftFront.z;
-        //     // var baseZ = depthDelta * yRatio;
-        //     
-        //     var groundZero = new Vector3(baseX, Sea_Left_Front.y, Sea_Left_Front.z);
-        //     
-        //     return position - groundZero;
-        // }
-        // public Vector3 GetNorth_Normalized(Vector3 position)
-        // {
-        //     return GetNorth(position).normalized;
-        // }
         
         protected override void Awake()
         {
@@ -77,9 +52,14 @@ namespace OldManAndTheSea.World
         {
             ScreenUtilities.Camera.fieldOfView = Settings.CameraFOV;
             
-            Data.SetupFromSettings(_worldManagerSettings);
+            UpdateData();
 
             SetupWaterQuad();
+        }
+
+        private void UpdateData()
+        {
+            Data.SetupFromSettings(_worldManagerSettings);
         }
 
         private void SetupWaterQuad()
@@ -105,11 +85,47 @@ namespace OldManAndTheSea.World
         {
             return Data.CoordinatesToWorldPoint(coordinates);
         }
+
+        public void Translate(float velocity)
+        {
+            if (!Mathf.Approximately(velocity, 0f))
+            {
+                // this.transform.Translate(Data.Sea_Right * velocity, Space.World);
+                this.transform.position += Data.Sea_Right * velocity;
+
+                UpdateData();
+            }
+        }
         
         private void DebugLogError(string message, Object context=null)
         {
             context = context != null ? context : this;
             DebugLogUtilities.LogError(DebugLogUtilities.DebugLogType.WORLD_MANAGER, message, context);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            var seaUp = Data.Sea_Up;
+
+            var cornerColor = Color.magenta;
+            var cornerRadius = 5f;
+            DebugExtension.DrawCircle(Data.Sea_Left_Front, seaUp, cornerColor, cornerRadius);
+            DebugExtension.DrawCircle(Data.Sea_Right_Front, seaUp, cornerColor, cornerRadius);
+            DebugExtension.DrawCircle(Data.Sea_Left_Back, seaUp, cornerColor, cornerRadius);
+            DebugExtension.DrawCircle(Data.Sea_Right_Back, seaUp, cornerColor, cornerRadius);
+
+            var middleColor = Color.red;
+            var middleRadius = 5f;
+            DebugExtension.DrawCircle(Data.Sea_Middle_Bottom, seaUp, middleColor, middleRadius);
+            DebugExtension.DrawCircle(Data.Sea_Middle_Top, seaUp, middleColor, middleRadius);
+
+            var rayColor = Color.red;
+            var rayLength = 0.25f;
+            Gizmos.color = rayColor;
+            Gizmos.DrawRay(Data.Sea_Left_Back, Data.WestToEast_Sea_Back * rayLength);
+            Gizmos.DrawRay(Data.Sea_Right_Back, Data.EastToWest_Sea_Back * rayLength);
+            // DebugExtension.DrawArrow(Data.Sea_Left_Back, Data.WestToEast_Sea_Back * rayLength, rayColor);
+            // DebugExtension.DrawArrow(Data.Sea_Right_Back, Data.EastToWest_Sea_Back * rayLength, rayColor);
         }
     }
 }

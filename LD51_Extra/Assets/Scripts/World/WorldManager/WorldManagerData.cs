@@ -9,6 +9,9 @@ namespace OldManAndTheSea.World
         public Vector3 Sea_Right_Front { get; private set; }
         public Vector3 Sea_Left_Back { get; private set; }
         public Vector3 Sea_Right_Back { get; private set; }
+        
+        public Vector3 Sea_Left_Middle { get; private set; }
+        public Vector3 Sea_Right_Middle { get; private set; }
 
         public Vector3 EastToWest_Sea_Back { get; private set; }
         public Vector3 WestToEast_Sea_Back { get; private set; }
@@ -17,6 +20,7 @@ namespace OldManAndTheSea.World
 
         public Vector3 Sea_Middle_Bottom { get; private set; }
         public Vector3 Sea_Middle_Top { get; private set; }
+        public Vector3 Sea_Middle_Middle { get; private set; }
 
         public Vector3 Sea_Left { get; private set; }
         public Vector3 Sea_Right { get; private set; }
@@ -50,13 +54,17 @@ namespace OldManAndTheSea.World
             Sea_Left_Back = leftBack;
             Sea_Right_Back = rightBack;
             
+            Sea_Left_Middle = Vector3.Lerp(Sea_Left_Front, Sea_Left_Back, 0.5f);
+            Sea_Right_Middle = Vector3.Lerp(Sea_Right_Front, Sea_Right_Back, 0.5f);
+            
             WestToEast_Sea_Back = Sea_Right_Back - Sea_Left_Back;
             EastToWest_Sea_Back = -WestToEast_Sea_Back;
             EastToWest_Normalized = EastToWest_Sea_Back.normalized;
             WestToEast_Normalized = -EastToWest_Normalized;
 
-            Sea_Middle_Bottom = Vector3.Lerp(Sea_Left_Front, Sea_Right_Front, 0.1f);
-            Sea_Middle_Top = Vector3.Lerp(Sea_Left_Back, Sea_Right_Back, 0.1f);
+            Sea_Middle_Bottom = Vector3.Lerp(Sea_Left_Front, Sea_Right_Front, 0.5f);
+            Sea_Middle_Top = Vector3.Lerp(Sea_Left_Back, Sea_Right_Back, 0.5f);
+            Sea_Middle_Middle = Vector3.Lerp(Sea_Middle_Bottom, Sea_Middle_Top, 0.5f);
 
             Sea_Right = WestToEast_Normalized;
             Sea_Left = -Sea_Right;

@@ -34,11 +34,11 @@ namespace OldManAndTheSea.Utilities
             { DebugLogType.CORE, true }
             , { DebugLogType.UTILITIES, false }
             , { DebugLogType.SEA_MANAGER, false }
-            , { DebugLogType.WORLD_MANAGER, false }
+            , { DebugLogType.WORLD_MANAGER, true }
             , { DebugLogType.SHIP, false }
             , { DebugLogType.PLAYER_INPUT, false }
-            , { DebugLogType.WEAPONS, true }
-            , { DebugLogType.LOOT, true }
+            , { DebugLogType.WEAPONS, false }
+            , { DebugLogType.LOOT, false }
         };
 
         [Conditional(DefaultDebugDefine)]

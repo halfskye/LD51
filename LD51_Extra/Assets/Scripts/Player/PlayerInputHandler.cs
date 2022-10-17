@@ -16,6 +16,11 @@ namespace OldManAndTheSea
             {
                 _player.SinkRandomShip();
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _player.ResetShip();
+            }
         }
         #endif // DEBUG
 

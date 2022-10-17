@@ -532,14 +532,14 @@ MonoBehaviour:
   _isPlayer: 1
   _health: 50
   _useRandomCoords: 0
-  xCoord: 0.25
+  xCoord: 0.5
   yCoord: 0.05
   xCoordRandom: {x: 0, y: 0}
   yCoordRandom: {x: 0, y: 0}
   _startRotationRange: {x: 0, y: 0}
-  _movementSpeed: 2
+  _movementSpeed: 2.5
   _randomRotationRange: {x: 0, y: 0}
-  _rotationSpeed: 10
+  _rotationSpeed: 25
   _oscillateRotation: 0
   _oscillationExtents: {x: -1, y: 1}
   _oscillationSpeed: 0.1
@@ -548,6 +548,8 @@ MonoBehaviour:
   _sailVisual: {fileID: 7897175832409172010}
   _stopVisual: {fileID: 8523933186037277791}
   _lootTable: {fileID: 0}
+  _lootDeviationRangeX: {x: 0, y: 0}
+  _lootDeviationRangeY: {x: 0, y: 0}
 --- !u!54 &654076632279327570
 Rigidbody:
   m_ObjectHideFlags: 0
