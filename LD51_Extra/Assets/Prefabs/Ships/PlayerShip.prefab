@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 3960008748788049070}
   - component: {fileID: 3960008748788049071}
   - component: {fileID: 654076632279327570}
+  - component: {fileID: 7471059817809500715}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Player
@@ -547,6 +548,8 @@ MonoBehaviour:
   _sunkDepth: 0.5
   _sailVisual: {fileID: 7897175832409172010}
   _stopVisual: {fileID: 8523933186037277791}
+  _cannons:
+  - {fileID: 7716804198863700400}
   _lootTable: {fileID: 0}
   _lootDeviationRangeX: {x: 0, y: 0}
   _lootDeviationRangeY: {x: 0, y: 0}
@@ -566,6 +569,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7471059817809500715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3960008748788049069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69dae3db770d487fa8616a4226b682d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: subTargetOverrides
+      Entry: 6
+      Data: 
+  IsSelf: 0
 --- !u!1 &3960008748823967133
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,6 +1122,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9154018835511672820, guid: e22d7d322a6d2b34f9d3e8985a9ec8c1, type: 3}
   m_PrefabInstance: {fileID: 3960008748060983294}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7716804198863700400 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6765354905690357326, guid: e22d7d322a6d2b34f9d3e8985a9ec8c1, type: 3}
+  m_PrefabInstance: {fileID: 3960008748060983294}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e4a0aba2ed455d9cb2d5f29672cbaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6518496534246748976
 PrefabInstance:
   m_ObjectHideFlags: 0

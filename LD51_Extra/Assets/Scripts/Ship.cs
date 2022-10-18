@@ -1,5 +1,7 @@
-﻿using DarkTonic.PoolBoss;
+﻿using System.Collections.Generic;
+using DarkTonic.PoolBoss;
 using OldManAndTheSea.Utilities;
+using OldManAndTheSea.Weapons;
 using OldManAndTheSea.World;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
@@ -54,9 +56,12 @@ namespace OldManAndTheSea
         [TitleGroup("@VISUALS_TITLE")]
         [SerializeField] private MeshRendererController _sailVisual = null;
         [SerializeField] private MeshRendererController _stopVisual = null;
-        
-        private const string LOOT_TITLE = "Loot";
 
+        [TitleGroup("Weaponry")]
+        [SerializeField] private List<Cannon> _cannons;
+        public Cannon ActiveCannon => _cannons[0];
+
+        private const string LOOT_TITLE = "Loot";
         [TitleGroup("@LOOT_TITLE")]
         [SerializeField] private LootTable _lootTable;
         [SerializeField, MinMaxSlider(-1f,1f)] private Vector2 _lootDeviationRangeX = Vector2.zero;
@@ -67,6 +72,9 @@ namespace OldManAndTheSea
         private float _invisibleTimer = 0f;
 
         private Renderer[] _renderers = null;
+
+        private TargetObject _selfTarget = null;
+        private TargetObject _target = null;
         
         private enum State
         {
@@ -80,6 +88,7 @@ namespace OldManAndTheSea
         private void Awake()
         {
             _renderers = this.GetComponentsInChildren<Renderer>();
+            _selfTarget = this.GetComponent<TargetObject>();
         }
 
         private void Start()
@@ -162,6 +171,33 @@ namespace OldManAndTheSea
 
                 UpdateInvisibleSafetyCheck();
             }
+            else
+            {
+                UpdateTarget();   
+            }
+        }
+
+        private void UpdateTarget()
+        {
+            _target = TargetManager.Instance.GetTarget(
+                this.transform.position,
+                GetTargetHeading(),
+                TargetManager.TargetingType.DEFAULT,
+                new TargetObject[] {_selfTarget}
+            );
+            ActiveCannon.SetTarget(_target);
+        }
+
+        private Vector3 GetTargetHeading()
+        {
+            var cannonTransform = ActiveCannon.transform;
+            var activeHeading = cannonTransform.forward;
+            DebugExtension.DebugArrow(cannonTransform.position, cannonTransform.forward * 5f, Color.red);
+            // var plane = new Plane(WorldManager.Instance.Data.Sea_Up, WorldManager.Instance.Data.Sea_Right_Middle);
+            var heading = Vector3.ProjectOnPlane(activeHeading, WorldManager.Instance.Data.Sea_Up);
+            // var heading = Vector3.Project(activeHeading, WorldManager.Instance.Data.Sea_Up);
+            DebugExtension.DebugArrow(cannonTransform.position, heading * 4f, Color.magenta);
+            return heading;
         }
 
         private void UpdateState_Sinking()

@@ -76,6 +76,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2487697810089132811}
     m_Modifications:
+    - target: {fileID: -1668511959463891067, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -1668511959463891067, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
     - target: {fileID: 7515059155218120884, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -174,6 +178,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2487697810089132811}
     m_Modifications:
+    - target: {fileID: -1668511959463891067, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -1668511959463891067, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
     - target: {fileID: 7515059155218120884, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -272,6 +280,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2487697810089132811}
     m_Modifications:
+    - target: {fileID: -1668511959463891067, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -1668511959463891067, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
     - target: {fileID: 7515059155218120884, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -370,6 +382,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2487697810089132811}
     m_Modifications:
+    - target: {fileID: -1668511959463891067, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -1668511959463891067, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
     - target: {fileID: 7515059155218120884, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -468,6 +484,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2487697810089132811}
     m_Modifications:
+    - target: {fileID: -1668511959463891067, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -1668511959463891067, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
     - target: {fileID: 7515059155218120884, guid: 209878979ea5d7649b8c9dbbd07fb944, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -566,6 +586,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2487697810318483659}
     m_Modifications:
+    - target: {fileID: -4909480435993381323, guid: 6e564e393a2a08045acac2efd6620b50, type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: -4909480435993381323, guid: 6e564e393a2a08045acac2efd6620b50, type: 3}
     - target: {fileID: 7329712227015030121, guid: 6e564e393a2a08045acac2efd6620b50, type: 3}
       propertyPath: m_Name
       value: NPCShip_Colonial

@@ -8,10 +8,17 @@ namespace OldManAndTheSea
     {
         [SerializeField] private Player _player = null;
 
-        //@TEMP/@DEBUG:
-        #if DEBUG
+        private bool _isFireHeld = false;
+        
         private void Update()
         {
+            if (_isFireHeld)
+            {
+                _player.Ship.ActiveCannon.Fire_Hold();
+            }
+            
+            //@TEMP/@DEBUG:
+            #if DEBUG
             if (Input.GetKeyDown(KeyCode.X))
             {
                 _player.SinkRandomShip();
@@ -21,8 +28,8 @@ namespace OldManAndTheSea
             {
                 _player.ResetShip();
             }
+            #endif // DEBUG
         }
-        #endif // DEBUG
 
         public void Move(InputAction.CallbackContext context)
         {
@@ -38,16 +45,22 @@ namespace OldManAndTheSea
             
             var aim = context.ReadValue<Vector2>();
             aim.y = -aim.y;
-            _player.Aim(aim);
+            _player.Ship.ActiveCannon.Aim(aim);
         }
         
         public void Fire(InputAction.CallbackContext context)
         {
-            if (context.performed)
-            {
-                DebugLog("Fire!");
+            DebugLog($"On: {context.ReadValueAsButton()} | Duration {context.duration} | Started: {context.started} | Performed: {context.performed} | Canceled: {context.canceled}");
 
-                _player.Fire();
+            if (context.started)
+            {
+                _player.Ship.ActiveCannon.Fire_Start();
+                _isFireHeld = true;
+            }
+            if (context.canceled)
+            {   
+                _player.Ship.ActiveCannon.Fire_Stop();
+                _isFireHeld = false;
             }
         }
 

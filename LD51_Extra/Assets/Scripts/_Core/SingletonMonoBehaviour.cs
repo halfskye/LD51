@@ -11,7 +11,7 @@ namespace OldManAndTheSea.Utilities
         {
             if (_instance != null)
             {
-                DebugLogError("SeaManager already exists. There should only be one.", this);
+                DebugLog("SeaManager already exists. There should only be one.", this);
                 Destroy(this.gameObject);
                 return;
             }
@@ -19,7 +19,7 @@ namespace OldManAndTheSea.Utilities
             _instance = this as T;
         }
 
-        private void DebugLogError(string message, Object context)
+        private void DebugLog(string message, Object context)
         {
             context = context != null ? context : this;
             DebugLogUtilities.LogError(DebugLogUtilities.DebugLogType.CORE, message, context);

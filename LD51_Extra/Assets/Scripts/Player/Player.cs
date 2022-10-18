@@ -12,6 +12,7 @@ namespace OldManAndTheSea
         public static string TAG_NAME = "Player";
         
         [SerializeField] private Ship _ship = null;
+        public Ship Ship => _ship;
         public Vector3 Position => _ship.transform.position;
 
         [SerializeField] private Cannon _cannon = null;
@@ -19,12 +20,12 @@ namespace OldManAndTheSea
         private Dictionary<Loot.Type, float> _loot = new Dictionary<Loot.Type, float>();
 
         private Vector2 _moveAxis = Vector2.zero;
-        private Vector2 _aimAxis = Vector2.zero;
+        // private Vector2 _aimAxis = Vector2.zero;
 
         private void Update()
         {
             UpdateMove();
-            UpdateAim();
+            // UpdateAim();
         }
 
         private void UpdateMove()
@@ -32,25 +33,40 @@ namespace OldManAndTheSea
             _ship.Move(_moveAxis);
         }
 
-        private void UpdateAim()
-        {
-            _cannon.Aim(_aimAxis);
-        }
+        // private void UpdateAim()
+        // {
+        //     _cannon.Aim(_aimAxis);
+        // }
 
         public void Move(Vector2 move)
         {
             _moveAxis = move;
         }
 
-        public void Aim(Vector2 aim)
-        {
-            _aimAxis = aim;
-        }
+        // public void Aim(Vector2 aim)
+        // {
+        //     _aimAxis = aim;
+        // }
 
-        public void Fire()
-        {
-            _cannon.Fire();
-        }
+        // public void Fire_Start()
+        // {
+        //     _cannon.Fire_Start();
+        // }
+        //
+        // public void Fire_Hold()
+        // {
+        //     _cannon.Fire_Hold();
+        // }
+        //
+        // public void Fire_Stop()
+        // {
+        //     _cannon.Fire_Stop();
+        // }
+        
+        // public void Fire()
+        // {
+        //     _cannon.Fire();
+        // }
 
         private void AddLoot(Loot.Type type, float amount)
         {

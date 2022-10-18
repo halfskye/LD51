@@ -17,12 +17,12 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - PlayerWeapon
+  - EnemyWeapon
+  - Player
+  - Enemy
+  - Ground
+  - Platform
   - 
   - 
   - 
