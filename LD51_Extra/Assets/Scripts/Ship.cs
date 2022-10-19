@@ -301,6 +301,23 @@ namespace OldManAndTheSea
             {
                 _stopVisual.Turn(isNearlyStopped);
             }
+
+            CastToWaterHeight();
+        }
+
+        private void CastToWaterHeight()
+        {
+            // if (WorldManager.Instance.TryGetWaterContactAtPosition(
+            //         this.transform.position,
+            //         out RaycastHit waterContact
+            //     ))
+            // {
+            //     this.transform.position = waterContact.point;
+            // }
+
+            var position = this.transform.position;
+            var waterHeight = WorldManager.Instance.GetWaterHeightAtPosition(position);
+            this.transform.position = new Vector3(position.x, waterHeight, position.z);
         }
 
         public void Move(Vector2 move)
