@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using OldManAndTheSea.Utilities;
+using Pinwheel.Poseidon;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -13,6 +13,9 @@ namespace OldManAndTheSea.World
         public WorldManagerData Data { get; private set; } = new WorldManagerData();
 
         [SerializeField] private MeshFilter _meshFilter = null;
+        
+        [SerializeField] private PWater _pWater;
+        [SerializeField] private Vector3 _pWaterPostScalar = new Vector3(1.3f, 1f, 1.4f);
 
         private Camera c => Camera.main;
         
@@ -53,8 +56,8 @@ namespace OldManAndTheSea.World
             ScreenUtilities.Camera.fieldOfView = Settings.CameraFOV;
             
             UpdateData();
-
-            SetupWaterQuad();
+            
+            SetupWorld();
         }
 
         private void UpdateData()
@@ -62,7 +65,17 @@ namespace OldManAndTheSea.World
             Data.SetupFromSettings(_worldManagerSettings);
         }
 
-        private void SetupWaterQuad()
+        private void SetupWorld()
+        {
+            var worldOrientation = Vector3.Angle(c.transform.forward, Data.Sea_Forward);
+            this.transform.Rotate(Vector3.right, worldOrientation);
+            
+            UpdateData();
+
+            SetupWater(worldOrientation);
+        }
+
+        private void SetupWaterQuad(float worldOrientation)
         {
             //@TEMP: Messing w/ temp material's UV coords
             var uv = _meshFilter.mesh.uv;
@@ -72,6 +85,8 @@ namespace OldManAndTheSea.World
             uv[3] = new Vector2(0f, 0f);
             _meshFilter.mesh.uv = uv;
             
+            _meshFilter.transform.Rotate(Vector3.right, -worldOrientation);
+            
             _meshFilter.mesh.SetVertices(new List<Vector3>()
             {
                 Data.Sea_Left_Front,
@@ -79,6 +94,33 @@ namespace OldManAndTheSea.World
                 Data.Sea_Left_Back,
                 Data.Sea_Right_Back
             });
+        }
+
+        private void SetupWater(float worldOrientation)
+        {
+            SetupWaterQuad(worldOrientation);
+            
+            SetupPWater(worldOrientation);
+            
+            // _meshFilter.transform.position -= Data.Sea_Up * 3f;
+        }
+
+        private void SetupPWater(float worldOrientation)
+        {
+            _pWater.transform.Rotate(Vector3.right, -worldOrientation);
+            
+            _pWater.MeshType = PWaterMeshType.Area;
+            _pWater.AreaMeshAnchors = new List<Vector3>()
+            {
+                Data.Sea_Left_Front,
+                Data.Sea_Right_Front,
+                Data.Sea_Right_Back,
+                Data.Sea_Left_Back,
+            };
+            // _pWater.MeshType = PWaterMeshType.Area;
+            _pWater.GenerateAreaMesh();
+
+            _pWater.transform.localScale = _pWaterPostScalar;
         }
 
         public Vector3 CoordinatesToWorldPoint(Vector2 coordinates)
