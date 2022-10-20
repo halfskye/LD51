@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: _categories.Array.data[3].IsExpanded
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[0].categoryName
@@ -205,19 +205,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[6].itemHardLimit
-      value: 50
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[7].itemHardLimit
-      value: 20
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[8].itemHardLimit
-      value: 20
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[9].itemHardLimit
-      value: 20
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 8461098813587158699, guid: c03adf4996a737444b5701a2249d749f, type: 3}
       propertyPath: poolItems.Array.data[0].prefabTransform

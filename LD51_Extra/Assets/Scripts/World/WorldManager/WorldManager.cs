@@ -129,7 +129,7 @@ namespace OldManAndTheSea.World
 
         public float GetWaterHeightAtPosition(Vector3 position)
         {
-            Vector3 localPos = this.transform.InverseTransformPoint(position);
+            Vector3 localPos = _pWater.transform.InverseTransformPoint(position);
             localPos.y = 0;
             localPos = _pWater.GetLocalVertexPosition(localPos, true);
             Vector3 worldPos = _pWater.transform.TransformPoint(localPos);

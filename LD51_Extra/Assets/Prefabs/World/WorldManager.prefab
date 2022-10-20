@@ -484,7 +484,7 @@ MonoBehaviour:
   profile: {fileID: 11400000, guid: 93866e582e7490f49bbc14618a51e849, type: 2}
   materialToRender: {fileID: 0}
   materialBackFace: {fileID: 0}
-  meshType: 0
+  meshType: 1
   planePattern: 2
   meshResolution: 100
   meshNoise: 0
@@ -505,8 +505,8 @@ MonoBehaviour:
   meshFilterComponent: {fileID: 5525536555236492639}
   meshRendererComponent: {fileID: 8512404075807082627}
   bounds:
-    m_Center: {x: 50, y: 0, z: 50}
-    m_Extent: {x: 50, y: 0, z: 50}
+    m_Center: {x: 0.5, y: 0, z: 0.5}
+    m_Extent: {x: 1.5, y: 1.5, z: 1.5}
   shouldRenderBackFace: 0
   meshVersion: 180
   timeMode: 0
@@ -622,6 +622,8 @@ MonoBehaviour:
   _meshFilter: {fileID: 1883366425}
   _pWater: {fileID: 8914791510014466653}
   _pWaterPostScalar: {x: 1.3, y: 1, z: 1.45}
+  _waterRaycastHeight: 10
+  _waterRaycastDistance: 15
 --- !u!114 &1956286330440231687
 MonoBehaviour:
   m_ObjectHideFlags: 0
