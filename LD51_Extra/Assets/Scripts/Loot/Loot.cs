@@ -43,17 +43,37 @@ namespace OldManAndTheSea
             {
                 UpdateState_Rising();
             }
+            else if (_state == State.IDLE)
+            {
+                UpdateState_Idle();
+            }
         }
 
         private void UpdateState_Rising()
         {
+            var thisTransform = this.transform;
+            var position = thisTransform.position;
             var rise = _riseSpeed * Time.deltaTime;
-            this.transform.position += WorldManager.Instance.Data.Sea_Up * rise;
-            _depth -= rise;
-            if (_depth <= 0f)
+            position += WorldManager.Instance.Data.Sea_Up * rise;
+            thisTransform.position = position;
+            
+            var waterHeight = WorldManager.Instance.GetWaterHeightAtPosition(position);
+            if (position.y >= waterHeight)
             {
                 _state = State.IDLE;
             }
+        }
+
+        private void UpdateState_Idle()
+        {
+            CastToWaterHeight();
+        }
+        
+        private void CastToWaterHeight()
+        {
+            var position = this.transform.position;
+            var waterHeight = WorldManager.Instance.GetWaterHeightAtPosition(position);
+            this.transform.position = new Vector3(position.x, waterHeight, position.z);
         }
 
         private void OnTriggerEnter(Collider other)

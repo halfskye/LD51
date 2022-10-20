@@ -108,37 +108,37 @@ namespace OldManAndTheSea
             
             _hasBecomeVisible = _isPlayer;
             
-            var worldManager = WorldManager.Instance;
-            var coords = Vector2.zero;
-
-            //@TODO: Set position.
-            if (_useRandomCoords)
-            {
-                var x = Mathf.Approximately(xCoordRandom.x, xCoordRandom.y)
-                    ? xCoordRandom.x
-                    : Random.Range(xCoordRandom.x, xCoordRandom.y);
-                
-                var y = Mathf.Approximately(yCoordRandom.x, yCoordRandom.y)
-                    ? yCoordRandom.x
-                    : Random.Range(yCoordRandom.x, yCoordRandom.y);
-
-                DebugLog($"Coords: {x}, {y}");
-                
-                coords = new Vector2(x, y);
-            }
-            else
-            {
-                coords = new Vector2(xCoord, yCoord);
-            }
-
-            var position = worldManager.CoordinatesToWorldPoint(coords);
-            this.transform.position = position;
-
-            // var rotation = _isPlayer ? worldManager.Data.WestToEast_Normalized : worldManager.Data.EastToWest_Normalized;
-            var startRotation = Random.Range(_startRotationRange.x, _startRotationRange.y);
-            // this.transform.rotation = Quaternion.LookRotation(_startRotation, worldManager.Data.Sea_Up);
-            var baseRotation = Quaternion.LookRotation(worldManager.Data.Sea_Forward, worldManager.Data.Sea_Up);
-            this.transform.rotation = baseRotation * Quaternion.Euler(0f, startRotation, 0f);
+            // var worldManager = WorldManager.Instance;
+            // var coords = Vector2.zero;
+            //
+            // //@TODO: Set position.
+            // if (_useRandomCoords)
+            // {
+            //     var x = Mathf.Approximately(xCoordRandom.x, xCoordRandom.y)
+            //         ? xCoordRandom.x
+            //         : Random.Range(xCoordRandom.x, xCoordRandom.y);
+            //     
+            //     var y = Mathf.Approximately(yCoordRandom.x, yCoordRandom.y)
+            //         ? yCoordRandom.x
+            //         : Random.Range(yCoordRandom.x, yCoordRandom.y);
+            //
+            //     DebugLog($"Coords: {x}, {y}");
+            //     
+            //     coords = new Vector2(x, y);
+            // }
+            // else
+            // {
+            //     coords = new Vector2(xCoord, yCoord);
+            // }
+            //
+            // var position = worldManager.CoordinatesToWorldPoint(coords);
+            // this.transform.position = position;
+            //
+            // // var rotation = _isPlayer ? worldManager.Data.WestToEast_Normalized : worldManager.Data.EastToWest_Normalized;
+            // var startRotation = Random.Range(_startRotationRange.x, _startRotationRange.y);
+            // // this.transform.rotation = Quaternion.LookRotation(_startRotation, worldManager.Data.Sea_Up);
+            // var baseRotation = Quaternion.LookRotation(worldManager.Data.Sea_Forward, worldManager.Data.Sea_Up);
+            // this.transform.rotation = baseRotation * Quaternion.Euler(0f, startRotation, 0f);
             
             _randomRotation = Random.Range(_randomRotationRange.x, _randomRotationRange.y);
         }

@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c754f40c280c4ab88a3c198810d1cf0e, type: 3}
+  m_Name: SpawnManagerSettings_TerrainObjects
+  m_EditorClassIdentifier: 
+  _useGlobalSpawnTimeRange: 1
+  _spawnTimeRange: {x: 3.005609, y: 9.08321}
+  _objectsSpawnData:
+  - _objectPrefab: {fileID: 4869282272555211299, guid: a72cf39bbdcb90945b2a379b6a8f27bd, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 5981831546523814821, guid: 9b9556bcadbd647429d4f078c58f6683, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 4002010280219020056, guid: 2ca651001705e0d4ea33751d613af6d6, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 3133195599447174266, guid: d0a6f589d8531bc41bec984f343ff72a, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 2147407978819620067, guid: b5c91d0f0ae9a3e42b5b02bfc22e43df, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 8147728889864320045, guid: 850c579a9bbb1914fa057579376161da, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 6753213367996800471, guid: 6a3c6c8df06faf042b5141d342525fbd, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 538497500828737988, guid: 3e9c6e5656fb7024690f078a0bde6f76, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 3821678994136880659, guid: 2da91ae14e6074042956519431029653, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 39233967907786072, guid: 527d434abfa19d44eb870e1ba793c51f, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 8075716596682122811, guid: 7d6455ac5ca0b5644bc8e896dcf09b9e, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 3730671965527283731, guid: 8e570acbf0a0bd54fa53adb1c05948d5, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 8597578031697421627, guid: 6ef6c81d34223b241a07eb8f81e47b53, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 2290485537573641301, guid: f4ef7cdcf2ddb7742a680b28b965a333, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 8751279615526293186, guid: 71ea0fc1aba34b3439f7ba6ac66d15dd, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  - _objectPrefab: {fileID: 1008580686600577549, guid: 6b484ed65f8768a45a51eaa71a56b037, type: 3}
+    _spawnTimeRange: {x: 1, y: 10}
+  _firstSpawnWaitTime: 3
+  _useRandomCoords: 1
+  xCoord: 0.25
+  yCoord: 0.05
+  xCoordRandom: {x: 1.0137795, y: 1.0492126}
+  yCoordRandom: {x: 0.045275584, y: 0.9547244}
+  _startRotationRange: {x: -180, y: 180}
