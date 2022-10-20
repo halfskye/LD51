@@ -66,12 +66,6 @@ namespace OldManAndTheSea
         [SerializeField] private LootTable _lootTable;
         [SerializeField, MinMaxSlider(-1f,1f)] private Vector2 _lootDeviationRangeX = Vector2.zero;
         [SerializeField, MinMaxSlider(-1f,1f)] private Vector2 _lootDeviationRangeY = Vector2.zero;
-        
-        private bool _hasBecomeVisible = false;
-        private const float MAX_INVISIBLE_TIME = 30f;
-        private float _invisibleTimer = 0f;
-
-        private Renderer[] _renderers = null;
 
         private TargetObject _selfTarget = null;
         private TargetObject _target = null;
@@ -87,7 +81,6 @@ namespace OldManAndTheSea
 
         private void Awake()
         {
-            _renderers = this.GetComponentsInChildren<Renderer>();
             _selfTarget = this.GetComponent<TargetObject>();
         }
 
@@ -105,9 +98,7 @@ namespace OldManAndTheSea
         {
             _state = State.Alive;
             _activeHealth = _health;
-            
-            _hasBecomeVisible = _isPlayer;
-            
+
             // var worldManager = WorldManager.Instance;
             // var coords = Vector2.zero;
             //
@@ -168,8 +159,6 @@ namespace OldManAndTheSea
                 var moveAxis = GetNPCMoveAxis();
 
                 UpdateMovement(moveAxis);
-
-                UpdateInvisibleSafetyCheck();
             }
             else
             {
@@ -343,40 +332,13 @@ namespace OldManAndTheSea
             _activeDepth = 0f;
         }
 
-        private void UpdateInvisibleSafetyCheck()
-        {
-            if (!_hasBecomeVisible)
-            {
-                _invisibleTimer += Time.deltaTime;
-                if (_invisibleTimer > MAX_INVISIBLE_TIME)
-                {
-                    Despawn();
-                }
-            }
-            else
-            {
-                _renderers.ForEach(x =>
-                {
-                    if (!GeometryUtility.TestPlanesAABB(WorldManager.Instance.Data.CameraFrustumPlanes, x.bounds))
-                    {
-                        Despawn();
-                    }
-                });
-            }
-        }
-
-        public void OnBecameVisible()
-        {
-            _hasBecomeVisible = true;
-        }
-
-        private void OnBecameInvisible()
-        {
-            if (IsAlive)
-            {
-                Despawn();
-            }
-        }
+        // private void OnBecameInvisible()
+        // {
+        //     if (IsAlive)
+        //     {
+        //         Despawn();
+        //     }
+        // }
 
         #region SPAWN POOL
 
