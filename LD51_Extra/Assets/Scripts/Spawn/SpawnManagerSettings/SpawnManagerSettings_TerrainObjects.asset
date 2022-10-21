@@ -51,6 +51,6 @@ MonoBehaviour:
   _useRandomCoords: 1
   xCoord: 0.25
   yCoord: 0.05
-  xCoordRandom: {x: 1.0137795, y: 1.0492126}
+  xCoordRandom: {x: 1.0579019, y: 1.25}
   yCoordRandom: {x: 0.045275584, y: 0.9547244}
   _startRotationRange: {x: -180, y: 180}
