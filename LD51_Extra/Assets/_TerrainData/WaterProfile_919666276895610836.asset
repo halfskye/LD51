@@ -15,11 +15,11 @@ MonoBehaviour:
   lightingModel: 0
   useFlatLighting: 1
   renderQueueIndex: 0
-  color: {r: 0, g: 0.6513947, b: 0.7924528, a: 0.78431374}
-  specColor: {r: 0.1, g: 0.1, b: 0.1, a: 1}
-  smoothness: 0.215
+  color: {r: 0, g: 0.4811321, b: 0.38340947, a: 0.78431374}
+  specColor: {r: 0, g: 0.1981132, b: 0.16334568, a: 1}
+  smoothness: 0.337
   enableLightAbsorption: 1
-  depthColor: {r: 0.019607836, g: 0.354663, b: 0.5647059, a: 0.98039216}
+  depthColor: {r: 0.019607836, g: 0.52621835, b: 0.5647059, a: 0.98039216}
   maxDepth: 2
   enableFoam: 1
   foamColor: {r: 1, g: 1, b: 1, a: 1}
@@ -33,9 +33,9 @@ MonoBehaviour:
   slopeFoamStrength: 0.5
   slopeFoamFlowSpeed: 20
   slopeFoamDistance: 50
-  rippleHeight: 0.5
+  rippleHeight: 0.1
   rippleSpeed: 5
-  rippleNoiseScale: 0.25
+  rippleNoiseScale: 2
   enableWave: 1
   waveDirection: 45
   waveSpeed: 3
@@ -52,7 +52,7 @@ MonoBehaviour:
   reflectionLayers:
     serializedVersion: 2
     m_Bits: 2147483647
-  reflectCustomSkybox: 0
+  reflectCustomSkybox: 1
   reflectionDistortionStrength: 0
   enableRefraction: 1
   refractionDistortionStrength: 1

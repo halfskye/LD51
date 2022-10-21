@@ -69,32 +69,32 @@ namespace OldManAndTheSea.Utilities
         }
         private State _state = State.IDLE;
         
-        private void Awake()
-        {
-            var sharedMaterials = _meshRenderer.sharedMaterials;
-            var materials = _meshRenderer.materials;
-
-            var materialsAndShared = materials.Zip(sharedMaterials, (m, s) => new 
-            {
-                Material = m, Shared = s,
-            });
-            materialsAndShared.ForEach(x =>
-            {
-                var material = x.Material;
-                if (_affectedMaterials.Contains(x.Shared))
-                {
-                    _materialColorMap.Add(material, new MaterialColorData(material));
-                }
-                else if(_allOtherMaterialsInvisible)
-                {
-                    SetMaterialToInvisible(material);
-                }
-            });
-
-            _state = State.IDLE;
-            _turnOnSpeed = 1f / _turnOnTime;
-            _turnOffSpeed = 1f / _turnOffTime;
-        }
+        // private void Awake()
+        // {
+        //     var sharedMaterials = _meshRenderer.sharedMaterials;
+        //     var materials = _meshRenderer.materials;
+        //
+        //     var materialsAndShared = materials.Zip(sharedMaterials, (m, s) => new 
+        //     {
+        //         Material = m, Shared = s,
+        //     });
+        //     materialsAndShared.ForEach(x =>
+        //     {
+        //         var material = x.Material;
+        //         if (_affectedMaterials.Contains(x.Shared))
+        //         {
+        //             _materialColorMap.Add(material, new MaterialColorData(material));
+        //         }
+        //         else if(_allOtherMaterialsInvisible)
+        //         {
+        //             SetMaterialToInvisible(material);
+        //         }
+        //     });
+        //
+        //     _state = State.IDLE;
+        //     _turnOnSpeed = 1f / _turnOnTime;
+        //     _turnOffSpeed = 1f / _turnOffTime;
+        // }
 
         private void SetMaterialToInvisible(Material material)
         {
@@ -139,10 +139,10 @@ namespace OldManAndTheSea.Utilities
             // _alpha = _materials.First().color.a;
         }
 
-        private void Update()
-        {
-            UpdateState();
-        }
+        // private void Update()
+        // {
+        //     UpdateState();
+        // }
 
         private void UpdateState()
         {
