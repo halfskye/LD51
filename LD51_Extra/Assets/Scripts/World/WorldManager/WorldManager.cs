@@ -9,17 +9,12 @@ namespace OldManAndTheSea.World
     public class WorldManager : SingletonMonoBehaviour<WorldManager>
     {
         [SerializeField] private WorldManagerSettings _worldManagerSettings = null;
-        private WorldManagerSettings Settings => _worldManagerSettings;
+        public WorldManagerSettings Settings => _worldManagerSettings;
         public WorldManagerData Data { get; private set; } = new WorldManagerData();
 
         [SerializeField] private MeshFilter _meshFilter = null;
         
         [SerializeField] private PWater _pWater;
-        [SerializeField] private Vector3 _pWaterPostScalar = new Vector3(1.3f, 1f, 1.4f);
-
-        [SerializeField] private float _waterRaycastHeight = 10f;
-        [SerializeField] private float _waterRaycastDistance = 15f;
-        private RaycastHit[] _waterRaycastResultsBuffer = new RaycastHit[8];
 
         private Camera c => Camera.main;
         
@@ -124,7 +119,9 @@ namespace OldManAndTheSea.World
             // _pWater.MeshType = PWaterMeshType.Area;
             _pWater.GenerateAreaMesh();
 
-            _pWater.transform.localScale = _pWaterPostScalar;
+            var pWaterTransform = _pWater.transform;
+            pWaterTransform.localScale = Settings.PWaterScalar;
+            pWaterTransform.localPosition = Settings.PWaterPosition;
         }
 
         public float GetWaterHeightAtPosition(Vector3 position)
@@ -135,46 +132,6 @@ namespace OldManAndTheSea.World
             Vector3 worldPos = _pWater.transform.TransformPoint(localPos);
             float waterHeight = worldPos.y;
             return waterHeight;
-        }
-        
-        public bool TryGetWaterContactAtPosition(Vector3 position, out RaycastHit waterContact)
-        {
-            var tileIndex = _pWater.WorldPointToTileIndex(position);
-            // _pWater.
-            
-            // Vector3 localPos = this.transform.InverseTransformPoint(position);
-            // localPos.y = 0;
-            // localPos = _pWater.GetLocalVertexPosition(localPos, false);
-            // Vector3 worldPos = this.transform.TransformPoint(localPos);
-            // float waterHeight = worldPos.y;
-            
-            var startPosition = position + Data.Sea_Up * _waterRaycastHeight;
-            var direction = -Data.Sea_Up;
-            DebugExtension.DebugArrow(startPosition, direction * _waterRaycastDistance, Color.magenta);
-            var layer = LayerMask.NameToLayer("Water");
-            // RaycastHit[] results = new RaycastHit[8];
-            var hits = Physics.RaycastNonAlloc(
-                startPosition,
-                direction,
-                _waterRaycastResultsBuffer,
-                _waterRaycastDistance,
-                layer
-            );
-            if (hits > 0)
-            {
-                waterContact = _waterRaycastResultsBuffer[0];
-                
-                // var hit = _waterRaycastResultsBuffer[0];
-                // waterPoint = hit.point;
-
-                return true;
-            }
-            else
-            {
-                waterContact = new RaycastHit();
-                
-                return false;
-            }
         }
 
         public Vector3 CoordinatesToWorldPoint(Vector2 coordinates)

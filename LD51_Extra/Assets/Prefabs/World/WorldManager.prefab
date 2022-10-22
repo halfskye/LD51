@@ -1231,7 +1231,7 @@ MonoBehaviour:
   SettingsFoldout: 1
   CloudsFoldout: 1
   PlatformFoldout: 1
-  m_UniStormProfile: {fileID: 0}
+  m_UniStormProfile: {fileID: 11400000, guid: 7805e47e6a0f7194ba562c9e08de4ecd, type: 2}
   FilePath: Assets/UniStorm Weather System/Resources/Components/Resources/UniStorm
     Data.asset
   UniStormProfileType: 0
@@ -1250,9 +1250,9 @@ MonoBehaviour:
   StartingHour: 17
   Minute: 30
   Hour: 12
-  Day: 25
-  Month: 6
-  Year: 2020
+  Day: 21
+  Month: 10
+  Year: 2022
   DayLength: 12
   NightLength: 12
   TimeOfDayUpdateSeconds: 5
@@ -1264,11 +1264,6 @@ MonoBehaviour:
   TimeOfDaySoundsSecondsMin: 5
   TimeOfDaySoundsSecondsMax: 10
   MorningSounds:
-  - {fileID: 8300000, guid: daf3f3a1e241b764c8ff43d7aeee29e2, type: 3}
-  - {fileID: 8300000, guid: 65d9aa7c01480944396f7b2093901573, type: 3}
-  - {fileID: 8300000, guid: 5931a23d71f7d6b46b0fcfb3fc521319, type: 3}
-  - {fileID: 8300000, guid: 29a2d3e60092cd44aaa8a7d35cbd32d9, type: 3}
-  - {fileID: 8300000, guid: 3713517f33546ab4c94c39dced1a7d42, type: 3}
   - {fileID: 8300000, guid: 9002c1595cb56e74b8354b568ad217cc, type: 3}
   - {fileID: 8300000, guid: 0b7ce06b9e8a17b41ae55febc94f9cdc, type: 3}
   - {fileID: 8300000, guid: 94210b16f951bd7469f2250796bf321d, type: 3}
@@ -1279,18 +1274,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 76c1d909b5e6ead46bd8079a9cb42f8d, type: 3}
   - {fileID: 8300000, guid: eae9b3e19af95944fb74ad66544f4886, type: 3}
   EveningSounds:
-  - {fileID: 8300000, guid: daf3f3a1e241b764c8ff43d7aeee29e2, type: 3}
-  - {fileID: 8300000, guid: 65d9aa7c01480944396f7b2093901573, type: 3}
-  - {fileID: 8300000, guid: 5931a23d71f7d6b46b0fcfb3fc521319, type: 3}
-  - {fileID: 8300000, guid: 29a2d3e60092cd44aaa8a7d35cbd32d9, type: 3}
-  - {fileID: 8300000, guid: 3713517f33546ab4c94c39dced1a7d42, type: 3}
   - {fileID: 8300000, guid: 94210b16f951bd7469f2250796bf321d, type: 3}
   - {fileID: 8300000, guid: 76c1d909b5e6ead46bd8079a9cb42f8d, type: 3}
   - {fileID: 8300000, guid: eae9b3e19af95944fb74ad66544f4886, type: 3}
   NightSounds:
-  - {fileID: 8300000, guid: ab85ecbe4dfd7b14ca192a6d33774cd7, type: 3}
-  - {fileID: 8300000, guid: bf1c9b9d1210d0142a9de89b6f3c9756, type: 3}
-  - {fileID: 8300000, guid: abb42cb0e9add8743a8f07a3d3465f87, type: 3}
   - {fileID: 8300000, guid: 9002c1595cb56e74b8354b568ad217cc, type: 3}
   - {fileID: 8300000, guid: 94210b16f951bd7469f2250796bf321d, type: 3}
   - {fileID: 8300000, guid: eae9b3e19af95944fb74ad66544f4886, type: 3}
@@ -1433,8 +1420,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b1b04f0270cfa784588fdc5818097ad3, type: 2}
   - {fileID: 11400000, guid: 865815ce607d94c4cb41162c44555e7c, type: 2}
   - {fileID: 11400000, guid: 8564137bd991ab448bb763ee76ea290f, type: 2}
-  - {fileID: 11400000, guid: 10a5f5e364219424e99103df231bb307, type: 2}
-  - {fileID: 11400000, guid: f0417bc7aee5058499ed9c7e3cab98ec, type: 2}
   - {fileID: 11400000, guid: 7ebca4bb3b5bc94439d523e69756d95d, type: 2}
   - {fileID: 11400000, guid: e9e48507f8ad9544193e97f1973cf946, type: 2}
   - {fileID: 11400000, guid: 817c2abbadfb7c04cbd380d43ef46e06, type: 2}
@@ -1449,8 +1434,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dfdaddca1cf225b4f843dd0745ff32b0, type: 2}
   - {fileID: 11400000, guid: ec37544ca0d8b3640b920a1f69c80705, type: 2}
   - {fileID: 11400000, guid: c34eda7e7ffbd3f438b544e91ed00986, type: 2}
-  - {fileID: 11400000, guid: a9bd836f3fecbe4469f275559ee76f01, type: 2}
-  - {fileID: 11400000, guid: 601a6938fd2feec47bb7c99a5497ae9b, type: 2}
   - {fileID: 11400000, guid: 2a15ac63af4bdb746bd5016842226a46, type: 2}
   - {fileID: 11400000, guid: 96e1dfcfb40114941a22ed265a84d385, type: 2}
   - {fileID: 11400000, guid: 3ef2a1c3a25ed764bb57de3be8960e7a, type: 2}
@@ -2185,7 +2168,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  CurrentSeason: 2
+  CurrentSeason: 3
   CloudType: 1
   CloudQuality: 2
   TemperatureType: 0
@@ -2951,7 +2934,7 @@ MonoBehaviour:
   - MoonPhaseTexture: {fileID: 2800000, guid: b9173d3e7f0a8a648a3a80ed799e7b8e, type: 3}
     MoonPhaseIntensity: 1.32
   m_AuroraParent: {fileID: 0}
-  StarmapType: 2
+  StarmapType: 1
   CloudRenderType: 1
   SunLightShaftIntensity:
     serializedVersion: 2
@@ -4102,12 +4085,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0bffdb6fd2e44bab70f523ba5b19fa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _worldManagerSettings: {fileID: 11400000, guid: c872a324d53162443a165fbbcc51a3d2, type: 2}
+  _worldManagerSettings: {fileID: 11400000, guid: 1d6e5edb4c0f0ac4fb1797ca53d43591, type: 2}
   _meshFilter: {fileID: 1883366425}
   _pWater: {fileID: 8914791510014466653}
-  _pWaterPostScalar: {x: 1.3, y: 1, z: 1.45}
-  _waterRaycastHeight: 10
-  _waterRaycastDistance: 15
 --- !u!114 &1956286330440231687
 MonoBehaviour:
   m_ObjectHideFlags: 0
